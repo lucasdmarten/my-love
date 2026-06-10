@@ -54,129 +54,11 @@
       padding: 16px 0 34px;
     }
 
-    .hero {
-      position: relative;
-      min-height: min(680px, calc(100vh - 32px));
-      display: grid;
-      align-items: end;
-      overflow: hidden;
-      border-radius: 32px;
-      color: #fff;
-      background:
-        linear-gradient(135deg, rgba(169, 77, 120, 0.94), rgba(240, 166, 194, 0.76));
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      box-shadow: var(--shadow);
-      isolation: isolate;
-    }
-
-    .hero-photo {
-      position: absolute;
-      inset: -32%;
-      z-index: 0;
-      background:
-        linear-gradient(180deg, rgba(55, 20, 42, 0.10) 0%, rgba(55, 20, 42, 0.70) 100%),
-        url("primeirodiajuntos.jpeg") center 35% / cover;
-      transform: rotate(45deg) scale(1.18);
-      transform-origin: center;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "♥";
-      position: absolute;
-      color: rgba(255, 255, 255, 0.20);
-      line-height: 1;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero::before {
-      top: 22px;
-      right: 24px;
-      font-size: 3.8rem;
-      transform: rotate(12deg);
-    }
-
-    .hero::after {
-      left: 24px;
-      bottom: 30px;
-      font-size: 2.2rem;
-      transform: rotate(-14deg);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 18px;
-      padding: 28px 20px;
-    }
-
-    .badge {
-      width: fit-content;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      backdrop-filter: blur(10px);
-      font-size: 0.88rem;
-      font-weight: 650;
-    }
-
     h1,
     h2,
     h3,
     p {
       margin-top: 0;
-    }
-
-    h1 {
-      max-width: 9ch;
-      margin-bottom: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3rem, 18vw, 7.6rem);
-      font-weight: 700;
-      line-height: 0.86;
-      letter-spacing: 0;
-      text-wrap: balance;
-      animation: titleIn 760ms ease-out both;
-    }
-
-    .hero p {
-      max-width: 58ch;
-      margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: clamp(1rem, 4.4vw, 1.18rem);
-      line-height: 1.65;
-    }
-
-    .hero-meta {
-      display: grid;
-      gap: 10px;
-    }
-
-    .meta-card {
-      padding: 14px 15px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      backdrop-filter: blur(12px);
-    }
-
-    .meta-label {
-      display: block;
-      margin-bottom: 5px;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .meta-value {
-      font-size: 0.98rem;
-      font-weight: 650;
-      line-height: 1.45;
     }
 
     .section {
@@ -462,18 +344,6 @@
       transform: translateY(1px);
     }
 
-    @keyframes titleIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -489,16 +359,6 @@
       .wrap {
         width: min(1060px, calc(100% - 44px));
         padding: 24px 0 46px;
-      }
-
-      .hero-inner {
-        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
-        align-items: end;
-        padding: 42px;
-      }
-
-      .hero-meta {
-        align-content: end;
       }
 
       .section {
@@ -549,31 +409,6 @@
 </head>
 <body>
   <main class="wrap" id="topo">
-    <section class="hero" aria-labelledby="titulo-principal">
-      <div class="hero-photo" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div>
-          <div class="badge">♥ Para Raquel</div>
-          <h1 id="titulo-principal">Feliz Dia dos Namorados</h1>
-          <p>
-            Este cantinho foi feito para guardar alguns dos nossos momentos mais bonitos,
-            um pedaço da nossa história e tudo aquilo que eu sinto por você.
-          </p>
-        </div>
-
-        <div class="hero-meta">
-          <div class="meta-card">
-            <span class="meta-label">Data especial</span>
-            <div class="meta-value">12 de abril, o dia em que nos conhecemos</div>
-          </div>
-          <div class="meta-card">
-            <span class="meta-label">Presente</span>
-            <div class="meta-value">Uma pequena galeria para voltar sempre que bater saudade.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" aria-labelledby="mensagem-inicial">
       <div class="section-header">
         <h2 class="section-title" id="mensagem-inicial"><span>💌</span> Uma mensagem para você</h2>
@@ -608,8 +443,8 @@
                 <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 1 de 17</div>
-                  <h3>O começo</h3>
-                  <p>Um daqueles dias que ficam guardados porque tudo começou a ganhar um sentido mais bonito.</p>
+                  <h3>Quando nos conhecemos</h3>
+                  <p>Esse dia ficou marcado nas nossas memórias, lembro que voce mandou foto da minha ID pra dinda chamar a policia se precisasse KKKK.</p>
                 </div>
               </div>
             </article>
@@ -619,8 +454,8 @@
                 <img src="serialkillers.jpeg" alt="Livro Serial Killers" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 2 de 17</div>
-                  <h3>Nossos detalhes</h3>
-                  <p>Até as escolhas mais aleatórias viram memória quando fazem parte da nossa história.</p>
+                  <h3>Tudo em comum</h3>
+                  <p>Logo ja achamos muitas coisas em comum né, inclusive trocamos livros e nenhum conseguiu ler inteiro hahah.</p>
                 </div>
               </div>
             </article>
@@ -630,8 +465,8 @@
                 <img src="entregadovilage.jpeg" alt="Entrega do Village" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 3 de 17</div>
-                  <h3>Entrega do Village</h3>
-                  <p>Uma lembrança de nós dois vivendo fases, planos e pequenas vitórias lado a lado.</p>
+                  <h3>A entrega do village</h3>
+                  <p>O tiozão fez um bom trabalho, vamos dar um crédito pra ele tb.</p>
                 </div>
               </div>
             </article>
@@ -641,8 +476,8 @@
                 <img src="valemuitomaisq10.jpeg" alt="Vale muito mais que dez" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 4 de 17</div>
-                  <h3>Vale muito mais</h3>
-                  <p>Um detalhe pequeno, daqueles que guardam uma piada, um carinho e um sorriso só nosso.</p>
+                  <h3>Seu valor</h3>
+                  <p>Nessa foto voce ta com uma etiqueta de $10, mas quero que saiba que vc vale muito mais que isso.</p>
                 </div>
               </div>
             </article>
@@ -653,7 +488,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 5 de 17</div>
                   <h3>Merrendi</h3>
-                  <p>Do nosso jeito, com carinho, descanso e aquela vontade boa de ficar perto.</p>
+                  <p>Aos poucos fui me rendendo a voce e seu amor, nesse dia ja tinha me rendido completamente.</p>
                 </div>
               </div>
             </article>
@@ -664,7 +499,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 6 de 17</div>
                   <h3>Primeiro churras</h3>
-                  <p>Uma lembrança simples, leve e cheia daquele jeito nosso de transformar tudo em memória boa.</p>
+                  <p>Demorei pra ir em um churras do Betão, mas depois que fui a primeira vez nunca mais parei de ir!.</p>
                 </div>
               </div>
             </article>
@@ -674,8 +509,8 @@
                 <img src="amoobeto.jpeg" alt="Amo o Beto" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 7 de 17</div>
-                  <h3>Amo o Beto</h3>
-                  <p>Mais uma dessas partes da nossa vida que só fazem sentido do nosso jeito.</p>
+                  <h3>O Betão</h3>
+                  <p>Eu amo ele.</p>
                 </div>
               </div>
             </article>
@@ -685,8 +520,8 @@
                 <img src="primeirodormidaonasala.jpeg" alt="Primeira dormida na sala" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 8 de 17</div>
-                  <h3>Primeira dormida na sala</h3>
-                  <p>Daqueles momentos que talvez pareçam pequenos para o mundo, mas que para mim valem muito.</p>
+                  <h3>Primeiro dormidão na sala</h3>
+                  <p>Nosso ninho de amor é com o colchão na sala.</p>
                 </div>
               </div>
             </article>
@@ -697,7 +532,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 9 de 17</div>
                   <h3>Primeiro home office</h3>
-                  <p>Mais do que qualquer lugar, o que importa é essa sensação de casa que eu encontro em você.</p>
+                  <p>Fazer homeoffice nunca foi tão bom.</p>
                 </div>
               </div>
             </article>
@@ -708,7 +543,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 10 de 17</div>
                   <h3>Nós veios</h3>
-                  <p>Uma foto, um instante, e a certeza de que eu quero viver muitas outras versões de nós.</p>
+                  <p>Já até sabemos como seremos quando envelhecer, obrigado GPT.</p>
                 </div>
               </div>
             </article>
@@ -719,7 +554,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 11 de 17</div>
                   <h3>Meu neném</h3>
-                  <p>Um daqueles registros que guardam brincadeira, carinho e a nossa forma de falar de amor.</p>
+                  <p>Sou seu nenem.</p>
                 </div>
               </div>
             </article>
@@ -729,8 +564,8 @@
                 <img src="fezatearrumaraarea.jpeg" alt="Fez ate arrumar a area" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 12 de 17</div>
-                  <h3>Até arrumar a área</h3>
-                  <p>Com você, até o improviso vira parte da história e acaba rendendo uma memória boa.</p>
+                  <h3>O impossível é só questão de opinião</h3>
+                  <p>Você fez o impossível parecer possível.</p>
                 </div>
               </div>
             </article>
@@ -741,7 +576,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 13 de 17</div>
                   <h3>Amo o Theo</h3>
-                  <p>Mais um pedacinho do que faz nossa vida ter afeto, graça e companhia.</p>
+                  <p>Amo muito o Theo, quero que ele cresça e continue sendo essa pessoa do bem.</p>
                 </div>
               </div>
             </article>
@@ -751,8 +586,8 @@
                 <img src="buscarotheo.jpeg" alt="Buscar o Theo" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 14 de 17</div>
-                  <h3>Buscar o Theo</h3>
-                  <p>Planos pequenos, rotina e lembranças que ficam melhores porque são com você.</p>
+                  <h3>Não era sabado, mas foi o dia do banho</h3>
+                  <p>Amo buscar e levar o theo para algum lugar hahah.</p>
                 </div>
               </div>
             </article>
@@ -763,7 +598,7 @@
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 15 de 17</div>
                   <h3>Amo a Jo</h3>
-                  <p>Com você, qualquer caminho fica melhor. Até o improviso vira parte da história.</p>
+                  <p>Eu amei toda sua familia, diz pra jo que eu também amo ela KKKK.</p>
                 </div>
               </div>
             </article>
@@ -773,8 +608,8 @@
                 <img src="tapago.jpeg" alt="Ta pago" loading="lazy" decoding="async" />
                 <div class="slide-caption">
                   <div class="slide-kicker">Foto 16 de 17</div>
-                  <h3>Tá pago</h3>
-                  <p>Mais uma dessas lembranças que misturam graça, parceria e o nosso jeito de viver tudo.</p>
+                  <h3>Axis é do BRASIIIIL</h3>
+                  <p>Mais uma do impossível é só questão de opinião KKKKKK.</p>
                 </div>
               </div>
             </article>
