@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#b85c8c" />
-  <title>Para Raquel ❤️</title>
+  <title>Feliz Dia dos Namorados, Raquel</title>
   <style>
     :root {
-      --bg: #fff7fb;
-      --card: rgba(255, 255, 255, 0.8);
-      --card-strong: #ffffff;
-      --text: #3d2434;
-      --muted: #7d5a6e;
-      --accent: #b85c8c;
-      --accent-2: #e78fb3;
-      --shadow: 0 18px 45px rgba(184, 92, 140, 0.16);
-      --radius: 28px;
-      --border: 1px solid rgba(184, 92, 140, 0.14);
+      --paper: rgba(255, 255, 255, 0.84);
+      --text: #3b2231;
+      --muted: #76586a;
+      --accent: #a94d78;
+      --accent-deep: #813254;
+      --line: rgba(169, 77, 120, 0.16);
+      --shadow: 0 20px 48px rgba(92, 38, 67, 0.14);
+      --soft-shadow: 0 12px 28px rgba(92, 38, 67, 0.09);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -27,375 +27,514 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(231, 143, 179, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(184, 92, 140, 0.10), transparent 24%),
-        linear-gradient(180deg, #fffafc 0%, #fff4f8 50%, #fff9fc 100%);
       min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 8% 4%, rgba(240, 166, 194, 0.28), transparent 26%),
+        radial-gradient(circle at 92% 14%, rgba(129, 50, 84, 0.14), transparent 24%),
+        linear-gradient(160deg, #fffafb 0%, #fff0f6 42%, #fffefe 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(169, 77, 120, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(169, 77, 120, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 70%);
     }
 
     .wrap {
-      width: min(1100px, calc(100% - 24px));
+      width: min(1060px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 18px 0 36px;
+      padding: 16px 0 34px;
     }
 
     .hero {
       position: relative;
+      min-height: min(680px, calc(100vh - 32px));
+      display: grid;
+      align-items: end;
       overflow: hidden;
-      border-radius: 34px;
-      background:
-        linear-gradient(135deg, rgba(184,92,140,0.95), rgba(231,143,179,0.88)),
-        linear-gradient(135deg, #b85c8c, #e78fb3);
+      border-radius: 32px;
       color: #fff;
+      background:
+        linear-gradient(180deg, rgba(55, 20, 42, 0.10) 0%, rgba(55, 20, 42, 0.70) 100%),
+        linear-gradient(135deg, rgba(169, 77, 120, 0.94), rgba(240, 166, 194, 0.76)),
+        url("amoteamar.jpeg") center 35% / cover;
+      border: 1px solid rgba(255, 255, 255, 0.28);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.24);
     }
 
     .hero::before,
     .hero::after {
-      content: "";
+      content: "♥";
       position: absolute;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      filter: blur(4px);
+      color: rgba(255, 255, 255, 0.20);
+      line-height: 1;
+      pointer-events: none;
     }
 
     .hero::before {
-      width: 220px;
-      height: 220px;
-      top: -70px;
-      right: -70px;
+      top: 22px;
+      right: 24px;
+      font-size: 3.8rem;
+      transform: rotate(12deg);
     }
 
     .hero::after {
-      width: 160px;
-      height: 160px;
-      bottom: -60px;
-      left: -40px;
+      left: 24px;
+      bottom: 30px;
+      font-size: 2.2rem;
+      transform: rotate(-14deg);
     }
 
     .hero-inner {
       position: relative;
       z-index: 1;
-      padding: 24px 18px 22px;
       display: grid;
       gap: 18px;
+      padding: 28px 20px;
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       width: fit-content;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.24);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
       font-size: 0.88rem;
-      letter-spacing: 0.2px;
-      backdrop-filter: blur(8px);
+      font-weight: 650;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2rem, 8vw, 4.4rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
+      max-width: 9ch;
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 18vw, 7.6rem);
+      font-weight: 700;
+      line-height: 0.86;
+      letter-spacing: 0;
+      text-wrap: balance;
+      animation: titleIn 760ms ease-out both;
     }
 
     .hero p {
-      margin: 0;
-      max-width: 55ch;
-      font-size: clamp(1rem, 4vw, 1.1rem);
+      max-width: 58ch;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1rem, 4.4vw, 1.18rem);
       line-height: 1.65;
-      color: rgba(255,255,255,0.92);
     }
 
     .hero-meta {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 2px;
+      gap: 10px;
     }
 
     .meta-card {
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 22px;
-      padding: 14px 16px;
-      backdrop-filter: blur(8px);
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(12px);
     }
 
     .meta-label {
       display: block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
+      margin-bottom: 5px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.74rem;
+      font-weight: 700;
       letter-spacing: 0.12em;
-      opacity: 0.85;
-      margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
     .meta-value {
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 0.98rem;
+      font-weight: 650;
+      line-height: 1.45;
     }
 
     .section {
-      margin-top: 16px;
-      background: var(--card);
-      border: var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(12px);
+      position: relative;
+      padding: 30px 0 8px;
     }
 
-    .section-inner {
-      padding: 18px;
+    .section + .section {
+      border-top: 1px solid rgba(169, 77, 120, 0.10);
+    }
+
+    .section-header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
     }
 
     .section-title {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
+      margin-bottom: 0;
+      font-size: clamp(1.35rem, 6vw, 2rem);
+      line-height: 1.12;
+      letter-spacing: 0;
     }
 
     .section-title span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(184, 92, 140, 0.1);
-      color: var(--accent);
+      display: grid;
+      width: 36px;
+      height: 36px;
       flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--accent);
+      background: rgba(169, 77, 120, 0.10);
     }
 
     .lead {
-      margin: 0;
+      max-width: 72ch;
+      margin-bottom: 0;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
+      font-size: 1rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .photo-card {
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(184, 92, 140, 0.12);
-      background: var(--card-strong);
-      box-shadow: 0 10px 26px rgba(61, 36, 52, 0.08);
-    }
-
-    .photo {
-      aspect-ratio: 4 / 5;
+    .intro-note {
       position: relative;
-      display: flex;
-      align-items: end;
-      padding: 16px;
-      color: #fff;
-      isolation: isolate;
-      overflow: hidden;
+      padding: 18px;
+      border-left: 3px solid rgba(169, 77, 120, 0.28);
+      border-radius: 0 18px 18px 0;
+      background: rgba(255, 255, 255, 0.46);
     }
 
-    .photo::before {
-      content: "";
+    .carousel-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .carousel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 14px 0;
+    }
+
+    .counter {
+      color: var(--accent-deep);
+      font-size: 0.84rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .carousel-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control,
+    .back-top {
+      min-width: 44px;
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent-deep);
+      box-shadow: 0 10px 20px rgba(129, 50, 84, 0.20);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .control:hover,
+    .back-top:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(129, 50, 84, 0.24);
+    }
+
+    .control:focus-visible,
+    .dot-button:focus-visible,
+    .back-top:focus-visible {
+      outline: 3px solid rgba(169, 77, 120, 0.26);
+      outline-offset: 3px;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 14px;
+    }
+
+    .slide-frame {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: end;
+      min-height: clamp(430px, 108vw, 660px);
+      border-radius: 22px;
+      background: #f7dce8;
+      isolation: isolate;
+    }
+
+    .slide-frame img {
       position: absolute;
       inset: 0;
-      background: var(--bg-image);
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.04);
-      filter: saturate(1.05);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.01);
       z-index: -2;
     }
 
-    .photo::after {
+    .slide-frame::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(18, 9, 16, 0.02) 35%, rgba(18, 9, 16, 0.76) 100%);
       z-index: -1;
+      background: linear-gradient(180deg, rgba(20, 9, 16, 0.02) 32%, rgba(20, 9, 16, 0.78) 100%);
     }
 
-    .photo-label {
+    .slide-caption {
+      padding: 22px 18px 18px;
+      color: #fff;
+    }
+
+    .slide-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 12px;
+      margin-bottom: 10px;
+      padding: 8px 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.22);
-      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(8px);
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
-    .caption {
-      padding: 14px 16px 16px;
+    .slide-caption h3 {
+      margin-bottom: 7px;
+      font-size: clamp(1.35rem, 7vw, 2.15rem);
+      line-height: 1.05;
+      letter-spacing: 0;
     }
 
-    .caption h3 {
-      margin: 0 0 6px;
-      font-size: 1rem;
+    .slide-caption p {
+      max-width: 48ch;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.90);
+      line-height: 1.55;
+      font-size: 0.98rem;
     }
 
-    .caption p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 0.95rem;
+    .dots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 14px 16px;
     }
 
-    .timeline {
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
+    .dot-button {
+      width: 11px;
+      height: 11px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(129, 50, 84, 0.22);
+      cursor: pointer;
+      transition: width 200ms ease, background 200ms ease;
     }
 
-    .moment {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 14px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(184, 92, 140, 0.10);
-    }
-
-    .dot {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(184,92,140,0.14), rgba(231,143,179,0.22));
-      color: var(--accent);
-      font-size: 1.15rem;
-      flex: 0 0 auto;
-    }
-
-    .moment h3 {
-      margin: 2px 0 4px;
-      font-size: 1rem;
-    }
-
-    .moment p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.95rem;
+    .dot-button[aria-current="true"] {
+      width: 30px;
+      background: var(--accent-deep);
     }
 
     .messages {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .message {
       padding: 16px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,248,252,0.96));
-      border: 1px solid rgba(184, 92, 140, 0.12);
-      box-shadow: 0 10px 22px rgba(61, 36, 52, 0.05);
-      line-height: 1.7;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       color: var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,247,251,0.94));
+      box-shadow: var(--soft-shadow);
+      line-height: 1.7;
     }
 
     .message strong {
-      color: var(--accent);
+      color: var(--accent-deep);
+    }
+
+    .finale {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+      padding: 30px 18px;
+      border-radius: 28px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,241,247,0.88)),
+        radial-gradient(circle at top, rgba(240, 166, 194, 0.26), transparent 58%);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .finale .lead {
+      margin-inline: auto;
+    }
+
+    .signature {
+      color: var(--accent-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 700;
     }
 
     .footer {
-      text-align: center;
+      padding: 22px 10px 6px;
       color: var(--muted);
+      text-align: center;
       font-size: 0.92rem;
-      padding: 20px 10px 8px;
       line-height: 1.6;
     }
 
     .heart {
       display: inline-block;
-      transform: translateY(1px);
       color: #e25d8d;
+      transform: translateY(1px);
     }
 
-    @media (min-width: 740px) {
+    @keyframes titleIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (min-width: 720px) {
       .wrap {
-        width: min(1100px, calc(100% - 40px));
-        padding: 26px 0 44px;
+        width: min(1060px, calc(100% - 44px));
+        padding: 24px 0 46px;
       }
 
       .hero-inner {
-        padding: 34px;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
         align-items: end;
-      }
-
-      .hero-copy {
-        padding-right: 20px;
+        padding: 42px;
       }
 
       .hero-meta {
-        margin-top: 0;
-        align-self: stretch;
-        grid-template-columns: 1fr;
         align-content: end;
       }
 
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .section {
+        padding-top: 42px;
+      }
+
+      .section-header {
+        grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+        align-items: end;
+        gap: 28px;
+      }
+
+      .carousel-top {
+        padding: 18px 18px 0;
+      }
+
+      .slide {
+        padding: 18px;
+      }
+
+      .slide-frame {
+        min-height: clamp(520px, 70vw, 680px);
+      }
+
+      .slide-caption {
+        padding: 32px;
+      }
+
+      .dots {
+        padding-bottom: 20px;
       }
 
       .messages {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .timeline {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .finale {
+        padding: 42px;
       }
     }
 
     @media (min-width: 980px) {
-      .hero-inner {
-        padding: 42px;
-      }
-
-      .grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
       .messages {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .timeline {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
+  <main class="wrap" id="topo">
+    <section class="hero" aria-labelledby="titulo-principal">
       <div class="hero-inner">
-        <div class="hero-copy">
-          <div class="badge">❤️ Para Raquel</div>
-          <h1>Feliz Dia dos Namorados</h1>
+        <div>
+          <div class="badge">♥ Para Raquel</div>
+          <h1 id="titulo-principal">Feliz Dia dos Namorados</h1>
           <p>
             Este cantinho foi feito para guardar alguns dos nossos momentos mais bonitos,
             um pedaço da nossa história e tudo aquilo que eu sinto por você.
@@ -408,112 +547,207 @@
             <div class="meta-value">12 de abril, o dia em que nos conhecemos</div>
           </div>
           <div class="meta-card">
-            <span class="meta-label">Mensagem</span>
-            <div class="meta-value">Você tornou os meus dias mais leves, bonitos e cheios de sentido.</div>
+            <span class="meta-label">Presente</span>
+            <div class="meta-value">Uma pequena galeria para voltar sempre que bater saudade.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title"><span>💌</span> Uma mensagem para você</h2>
-        <p class="lead">
+    <section class="section" aria-labelledby="mensagem-inicial">
+      <div class="section-header">
+        <h2 class="section-title" id="mensagem-inicial"><span>💌</span> Uma mensagem para você</h2>
+        <p class="lead intro-note">
           Raquel, eu queria te dar algo que fosse mais do que um presente. Queria te dar uma lembrança viva,
           um lugar para voltar sempre que bater saudade, um espaço feito com carinho para celebrar a sorte que eu tenho de ter você na minha vida.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title"><span>📷</span> Momentos</h2>
-        <p class="lead">Essa seção fiz para separar alguns momentos especiais.</p>
+    <section class="section" aria-labelledby="momentos">
+      <div class="section-header">
+        <h2 class="section-title" id="momentos"><span>📷</span> Nossos momentos</h2>
+        <p class="lead">
+          Do começo aos detalhes de todo dia, cada foto aqui guarda um pedaço bonito da nossa história.
+        </p>
+      </div>
 
-        <div class="grid">
-          <article class="photo-card">
-            <div class="photo" style="--bg-image: linear-gradient(135deg, rgba(184,92,140,0.25), rgba(231,143,179,0.18)), url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80');">
-              <div class="photo-label">Foto 1 — primeiro sorriso</div>
-            </div>
-            <div class="caption">
-              <h3>O começo de tudo</h3>
-              <p>Substitua esta imagem por uma foto que represente o início da nossa história.</p>
-            </div>
-          </article>
-
-          <article class="photo-card">
-            <div class="photo" style="--bg-image: linear-gradient(135deg, rgba(184,92,140,0.22), rgba(231,143,179,0.16)), url('https://images.unsplash.com/photo-1523438097201-512ae7d59c4a?auto=format&fit=crop&w=900&q=80');">
-              <div class="photo-label">Foto 2 — momento especial</div>
-            </div>
-            <div class="caption">
-              <h3>Um dia inesquecível</h3>
-              <p>Troque por uma foto de viagem, passeio, jantar ou qualquer memória feliz.</p>
-            </div>
-          </article>
-
-          <article class="photo-card">
-            <div class="photo" style="--bg-image: linear-gradient(135deg, rgba(184,92,140,0.22), rgba(231,143,179,0.16)), url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80');">
-              <div class="photo-label">Foto 3 — nós dois</div>
-            </div>
-            <div class="caption">
-              <h3>Juntos</h3>
-              <p>Uma foto mais íntima, divertida ou espontânea costuma deixar a página mais pessoal.</p>
-            </div>
-          </article>
+      <div class="carousel-card" aria-roledescription="carrossel" aria-label="Carrossel com 12 fotos de Raquel e Lucas">
+        <div class="carousel-top">
+          <div class="counter" id="carousel-counter" aria-live="polite">1 de 12</div>
+          <div class="carousel-controls">
+            <button class="control" type="button" id="prev-slide" aria-label="Foto anterior">‹</button>
+            <button class="control" type="button" id="next-slide" aria-label="Próxima foto">›</button>
+          </div>
         </div>
+
+        <div class="carousel-viewport" id="carousel-viewport">
+          <div class="carousel-track" id="carousel-track">
+            <article class="slide" aria-label="Foto 1 de 12">
+              <div class="slide-frame">
+                <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 1 de 12</div>
+                  <h3>O começo</h3>
+                  <p>Um daqueles dias que ficam guardados porque tudo começou a ganhar um sentido mais bonito.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 2 de 12">
+              <div class="slide-frame">
+                <img src="beijoMaldito.jpeg" alt="Um beijo especial" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 2 de 12</div>
+                  <h3>Seu sorriso</h3>
+                  <p>Tem coisas que deixam qualquer dia melhor. Seu sorriso sempre foi uma delas.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 3 de 12">
+              <div class="slide-frame">
+                <img src="primeirochurras.jpeg" alt="Primeiro churrasco juntos" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 3 de 12</div>
+                  <h3>Nosso primeiro momento especial</h3>
+                  <p>Uma lembrança simples, leve e cheia daquele jeito nosso de transformar tudo em memória boa.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 4 de 12">
+              <div class="slide-frame">
+                <img src="primeirodormidaonasala.jpeg" alt="Primeira dormida na sala" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 4 de 12</div>
+                  <h3>Um dia inesquecível</h3>
+                  <p>Daqueles momentos que talvez pareçam pequenos para o mundo, mas que para mim valem muito.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 5 de 12">
+              <div class="slide-frame">
+                <img src="entregadovilage.jpeg" alt="Entrega do Village" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 5 de 12</div>
+                  <h3>Você e eu</h3>
+                  <p>Quando estamos juntos, até os dias comuns ganham uma graça diferente.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 6 de 12">
+              <div class="slide-frame">
+                <img src="amoteamar.jpeg" alt="Momento de carinho" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 6 de 12</div>
+                  <h3>Uma lembrança leve</h3>
+                  <p>Eu amo o jeito como a gente ri, conversa e encontra paz nas pequenas coisas.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 7 de 12">
+              <div class="slide-frame">
+                <img src="amoajo.jpeg" alt="Uma aventura juntos" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 7 de 12</div>
+                  <h3>Aventura juntos</h3>
+                  <p>Com você, qualquer caminho fica melhor. Até o improviso vira parte da história.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 8 de 12">
+              <div class="slide-frame">
+                <img src="primeiraviagem.jpeg" alt="Primeira viagem juntos" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 8 de 12</div>
+                  <h3>Abraço favorito</h3>
+                  <p>Se eu pudesse guardar uma sensação para sempre, seria a tranquilidade de estar perto de você.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 9 de 12">
+              <div class="slide-frame">
+                <img src="primeirohomeoffice.jpeg" alt="Primeiro home office juntos" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 9 de 12</div>
+                  <h3>Nosso lugar</h3>
+                  <p>Mais do que qualquer lugar, o que importa é essa sensação de casa que eu encontro em você.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 10 de 12">
+              <div class="slide-frame">
+                <img src="noisveios.jpeg" alt="Nós dois juntos" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 10 de 12</div>
+                  <h3>Mais uma memória</h3>
+                  <p>Uma foto, um instante, e a certeza de que eu quero viver muitas outras versões de nós.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 11 de 12">
+              <div class="slide-frame">
+                <img src="valemuitomaisq10.jpeg" alt="Detalhe especial" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 11 de 12</div>
+                  <h3>O detalhe que eu amo</h3>
+                  <p>Eu amo os detalhes que só você tem e esse jeito de fazer tudo ficar mais bonito.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 12 de 12">
+              <div class="slide-frame">
+                <img src="tapago.jpeg" alt="Sempre nós" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 12 de 12</div>
+                  <h3>Sempre nós</h3>
+                  <p>Que venham mais fotos, mais planos, mais risadas e mais motivos para escolher você todos os dias.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="dots" id="carousel-dots" aria-label="Escolher foto"></div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title"><span>✨</span> Alguns momentos que eu guardaria para sempre</h2>
-        <div class="timeline">
-          <div class="moment">
-            <div class="dot">1</div>
-            <div>
-              <h3>12 de abril</h3>
-              <p>O dia em que tudo começou e eu tive a sorte de cruzar o seu caminho.</p>
-            </div>
-          </div>
-          <div class="moment">
-            <div class="dot">2</div>
-            <div>
-              <h3>Os pequenos gestos</h3>
-              <p>As conversas, os detalhes e o cuidado no dia a dia que fazem toda a diferença.</p>
-            </div>
-          </div>
-          <div class="moment">
-            <div class="dot">3</div>
-            <div>
-              <h3>O que ainda vamos viver</h3>
-              <p>Mais lembranças, mais fotos, mais histórias e mais motivos para sorrir juntos.</p>
-            </div>
-          </div>
-        </div>
+    <section class="section" aria-labelledby="mensagens">
+      <div class="section-header">
+        <h2 class="section-title" id="mensagens"><span>💖</span> Mensagens de amor</h2>
+        <p class="lead">
+          Algumas verdades pequenas, mas importantes, para você lembrar sempre.
+        </p>
+      </div>
+
+      <div class="messages">
+        <div class="message"><strong>Você é o meu lugar favorito.</strong> Estar com você faz tudo parecer mais leve e mais bonito.</div>
+        <div class="message"><strong>O melhor do meu dia</strong> quase sempre tem a ver com falar com você, ver você ou pensar em você.</div>
+        <div class="message"><strong>Eu admiro você</strong> pelo que é, pelo que faz e pela forma como ilumina o ambiente ao seu redor.</div>
+        <div class="message"><strong>Queria que você soubesse</strong> que, entre tantas coisas boas, você é uma das mais especiais da minha vida.</div>
+        <div class="message"><strong>Se eu pudesse escolher de novo,</strong> eu escolheria você mais uma vez, do mesmo jeito e sem hesitar.</div>
+        <div class="message"><strong>Você faz falta até quando está perto</strong>, porque eu sempre quero um pouco mais de você.</div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title"><span>💖</span> Mensagens de amor</h2>
-        <div class="messages">
-          <div class="message"><strong>Você é o meu lugar favorito.</strong> Estar com você faz tudo parecer mais leve e mais bonito.</div>
-          <div class="message"><strong>O melhor do meu dia</strong> quase sempre tem a ver com falar com você, ver você ou pensar em você.</div>
-          <div class="message"><strong>Eu admiro você</strong> pelo que é, pelo que faz e pela forma como ilumina o ambiente ao seu redor.</div>
-          <div class="message"><strong>Queria que você soubesse</strong> que, entre tantas coisas boas, você é uma das mais especiais da minha vida.</div>
-          <div class="message"><strong>Se eu pudesse escolher de novo,</strong> eu escolheria você mais uma vez, do mesmo jeito e sem hesitar.</div>
-          <div class="message"><strong>Você faz falta até quando está perto</strong>, porque eu sempre quero um pouco mais de você.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title"><span>🌷</span> Final</h2>
-        <p class="lead" style="text-align:center; max-width: 60ch; margin: 0 auto;">
+    <section class="section" aria-labelledby="final">
+      <div class="finale">
+        <h2 class="section-title" id="final"><span>🌷</span> Final</h2>
+        <p class="lead">
           Raquel, obrigado por existir na minha vida. Que esse presente guarde um pedaço do que eu sinto por você:
           carinho, admiração, saudade boa e muito amor.
         </p>
+        <div class="signature">Com amor, Lucas</div>
+        <button class="back-top" type="button" id="back-top" aria-label="Voltar ao começo">↑</button>
       </div>
     </section>
 
@@ -521,5 +755,124 @@
       Feito com carinho <span class="heart">♥</span> para a Raquel
     </div>
   </main>
+
+  <script>
+    const track = document.getElementById("carousel-track");
+    const viewport = document.getElementById("carousel-viewport");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const counter = document.getElementById("carousel-counter");
+    const dotsContainer = document.getElementById("carousel-dots");
+    const prevButton = document.getElementById("prev-slide");
+    const nextButton = document.getElementById("next-slide");
+    const backTopButton = document.getElementById("back-top");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const autoplayDelay = 5200;
+
+    let currentIndex = 0;
+    let autoplayId;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const dots = slides.map((_, index) => {
+      const button = document.createElement("button");
+      button.className = "dot-button";
+      button.type = "button";
+      button.setAttribute("aria-label", `Ir para foto ${index + 1}`);
+      button.addEventListener("click", () => {
+        goToSlide(index);
+        restartAutoplay();
+      });
+      dotsContainer.appendChild(button);
+      return button;
+    });
+
+    function goToSlide(index) {
+      currentIndex = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      counter.textContent = `${currentIndex + 1} de ${slides.length}`;
+
+      dots.forEach((dot, dotIndex) => {
+        dot.setAttribute("aria-current", String(dotIndex === currentIndex));
+      });
+
+      slides.forEach((slide, slideIndex) => {
+        slide.setAttribute("aria-hidden", String(slideIndex !== currentIndex));
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function previousSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startAutoplay() {
+      if (reduceMotion) {
+        return;
+      }
+
+      autoplayId = window.setInterval(nextSlide, autoplayDelay);
+    }
+
+    function restartAutoplay() {
+      window.clearInterval(autoplayId);
+      startAutoplay();
+    }
+
+    prevButton.addEventListener("click", () => {
+      previousSlide();
+      restartAutoplay();
+    });
+
+    nextButton.addEventListener("click", () => {
+      nextSlide();
+      restartAutoplay();
+    });
+
+    viewport.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", (event) => {
+      const touchEndX = event.changedTouches[0].clientX;
+      const touchEndY = event.changedTouches[0].clientY;
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      if (Math.abs(deltaX) < 42 || Math.abs(deltaX) < Math.abs(deltaY)) {
+        return;
+      }
+
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        previousSlide();
+      }
+
+      restartAutoplay();
+    }, { passive: true });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        nextSlide();
+        restartAutoplay();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousSlide();
+        restartAutoplay();
+      }
+    });
+
+    backTopButton.addEventListener("click", () => {
+      document.getElementById("topo").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+
+    goToSlide(0);
+    startAutoplay();
+  </script>
 </body>
 </html>
