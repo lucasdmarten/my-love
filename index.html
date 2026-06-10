@@ -65,7 +65,7 @@
       background:
         linear-gradient(180deg, rgba(55, 20, 42, 0.10) 0%, rgba(55, 20, 42, 0.70) 100%),
         linear-gradient(135deg, rgba(169, 77, 120, 0.94), rgba(240, 166, 194, 0.76)),
-        url("amoteamar.jpeg") center 35% / cover;
+        url("primeirodiajuntos.jpeg") center 35% / cover;
       border: 1px solid rgba(255, 255, 255, 0.28);
       box-shadow: var(--shadow);
     }
@@ -315,6 +315,10 @@
       object-position: center;
       transform: scale(1.01);
       z-index: -2;
+    }
+
+    .slide-frame.rotate-right img {
+      transform: rotate(90deg) scale(1.35);
     }
 
     .slide-frame::after {
@@ -572,9 +576,9 @@
         </p>
       </div>
 
-      <div class="carousel-card" aria-roledescription="carrossel" aria-label="Carrossel com 12 fotos de Raquel e Lucas">
+      <div class="carousel-card" aria-roledescription="carrossel" aria-label="Carrossel com 7 fotos de Raquel e Lucas">
         <div class="carousel-top">
-          <div class="counter" id="carousel-counter" aria-live="polite">1 de 12</div>
+          <div class="counter" id="carousel-counter" aria-live="polite">1 de 7</div>
           <div class="carousel-controls">
             <button class="control" type="button" id="prev-slide" aria-label="Foto anterior">‹</button>
             <button class="control" type="button" id="next-slide" aria-label="Próxima foto">›</button>
@@ -583,134 +587,79 @@
 
         <div class="carousel-viewport" id="carousel-viewport">
           <div class="carousel-track" id="carousel-track">
-            <article class="slide" aria-label="Foto 1 de 12">
+            <article class="slide" aria-label="Foto 1 de 7">
               <div class="slide-frame">
                 <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 1 de 12</div>
+                  <div class="slide-kicker">Foto 1 de 7</div>
                   <h3>O começo</h3>
                   <p>Um daqueles dias que ficam guardados porque tudo começou a ganhar um sentido mais bonito.</p>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 2 de 12">
-              <div class="slide-frame">
-                <img src="beijoMaldito.jpeg" alt="Um beijo especial" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 2 de 12</div>
-                  <h3>Seu sorriso</h3>
-                  <p>Tem coisas que deixam qualquer dia melhor. Seu sorriso sempre foi uma delas.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 3 de 12">
-              <div class="slide-frame">
-                <img src="primeirochurras.jpeg" alt="Primeiro churrasco juntos" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 3 de 12</div>
-                  <h3>Nosso primeiro momento especial</h3>
-                  <p>Uma lembrança simples, leve e cheia daquele jeito nosso de transformar tudo em memória boa.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 4 de 12">
+            <article class="slide" aria-label="Foto 2 de 7">
               <div class="slide-frame">
                 <img src="primeirodormidaonasala.jpeg" alt="Primeira dormida na sala" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 4 de 12</div>
+                  <div class="slide-kicker">Foto 2 de 7</div>
                   <h3>Um dia inesquecível</h3>
                   <p>Daqueles momentos que talvez pareçam pequenos para o mundo, mas que para mim valem muito.</p>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 5 de 12">
+            <article class="slide" aria-label="Foto 3 de 7">
               <div class="slide-frame">
-                <img src="entregadovilage.jpeg" alt="Entrega do Village" loading="lazy" decoding="async" />
+                <img src="primeirodormidaonasala.jpeg" alt="Primeira dormida na sala" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 5 de 12</div>
-                  <h3>Você e eu</h3>
-                  <p>Quando estamos juntos, até os dias comuns ganham uma graça diferente.</p>
+                  <div class="slide-kicker">Foto 3 de 7</div>
+                  <h3>Acordar perto</h3>
+                  <p>Uma memória simples de cuidado, presença e do nosso jeito de ficar bem juntos.</p>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 6 de 12">
+            <article class="slide" aria-label="Foto 4 de 7">
               <div class="slide-frame">
-                <img src="amoteamar.jpeg" alt="Momento de carinho" loading="lazy" decoding="async" />
+                <img src="serialkillers.jpeg" alt="Livro Serial Killers" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 6 de 12</div>
-                  <h3>Uma lembrança leve</h3>
-                  <p>Eu amo o jeito como a gente ri, conversa e encontra paz nas pequenas coisas.</p>
+                  <div class="slide-kicker">Foto 4 de 7</div>
+                  <h3>Nossos detalhes</h3>
+                  <p>Até as escolhas mais aleatórias viram memória quando fazem parte da nossa história.</p>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 7 de 12">
+            <article class="slide" aria-label="Foto 5 de 7">
               <div class="slide-frame">
-                <img src="amoajo.jpeg" alt="Uma aventura juntos" loading="lazy" decoding="async" />
+                <img src="valemuitomaisq10.jpeg" alt="Vale muito mais que dez" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 7 de 12</div>
-                  <h3>Aventura juntos</h3>
-                  <p>Com você, qualquer caminho fica melhor. Até o improviso vira parte da história.</p>
+                  <div class="slide-kicker">Foto 5 de 7</div>
+                  <h3>Vale muito mais</h3>
+                  <p>Um detalhe pequeno, daqueles que guardam uma piada, um carinho e um sorriso só nosso.</p>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 8 de 12">
+            <article class="slide" aria-label="Foto 6 de 7">
+              <div class="slide-frame">
+                <img src="merrendi.jpeg" alt="Merrendi" loading="lazy" decoding="async" />
+                <div class="slide-caption">
+                  <div class="slide-kicker">Foto 6 de 7</div>
+                  <h3>Merrendi</h3>
+                  <p>Do nosso jeito, com carinho, descanso e aquela vontade boa de ficar perto.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" aria-label="Foto 7 de 7">
               <div class="slide-frame">
                 <img src="primeiraviagem.jpeg" alt="Primeira viagem juntos" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 8 de 12</div>
-                  <h3>Abraço favorito</h3>
-                  <p>Se eu pudesse guardar uma sensação para sempre, seria a tranquilidade de estar perto de você.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 9 de 12">
-              <div class="slide-frame">
-                <img src="primeirohomeoffice.jpeg" alt="Primeiro home office juntos" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 9 de 12</div>
-                  <h3>Nosso lugar</h3>
-                  <p>Mais do que qualquer lugar, o que importa é essa sensação de casa que eu encontro em você.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 10 de 12">
-              <div class="slide-frame">
-                <img src="noisveios.jpeg" alt="Nós dois juntos" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 10 de 12</div>
-                  <h3>Mais uma memória</h3>
-                  <p>Uma foto, um instante, e a certeza de que eu quero viver muitas outras versões de nós.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 11 de 12">
-              <div class="slide-frame">
-                <img src="valemuitomaisq10.jpeg" alt="Detalhe especial" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 11 de 12</div>
-                  <h3>O detalhe que eu amo</h3>
-                  <p>Eu amo os detalhes que só você tem e esse jeito de fazer tudo ficar mais bonito.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="slide" aria-label="Foto 12 de 12">
-              <div class="slide-frame">
-                <img src="tapago.jpeg" alt="Sempre nós" loading="lazy" decoding="async" />
-                <div class="slide-caption">
-                  <div class="slide-kicker">Foto 12 de 12</div>
-                  <h3>Sempre nós</h3>
-                  <p>Que venham mais fotos, mais planos, mais risadas e mais motivos para escolher você todos os dias.</p>
+                  <div class="slide-kicker">Foto 7 de 7</div>
+                  <h3>Primeira viagem</h3>
+                  <p>Uma daquelas imagens que dizem tudo: o mundo fica mais bonito quando estou com você.</p>
                 </div>
               </div>
             </article>
