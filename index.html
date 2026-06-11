@@ -90,100 +90,50 @@
       padding: 14px 0 36px;
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
+    .site-intro {
       display: grid;
-      align-items: stretch;
-      border-radius: 34px;
-      color: #fff;
-      background:
-        radial-gradient(circle at 16% 8%, rgba(248, 197, 210, 0.34), transparent 34%),
-        radial-gradient(circle at 84% 18%, rgba(212, 154, 67, 0.20), transparent 28%),
-        linear-gradient(135deg, var(--rose-deep) 0%, var(--plum) 48%, var(--sage) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      box-shadow: var(--shadow);
-      isolation: isolate;
+      gap: 12px;
+      padding: 18px 0 20px;
+      border-bottom: 1px solid rgba(124, 41, 77, 0.10);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 42%;
-      z-index: -1;
-      background: linear-gradient(180deg, transparent, rgba(38, 14, 29, 0.68));
-    }
-
-    .hero::after {
-      content: "♥";
-      position: absolute;
-      top: 22px;
-      right: 24px;
-      color: rgba(255, 255, 255, 0.28);
-      font-size: clamp(2.5rem, 10vw, 5.8rem);
-      line-height: 1;
-      transform: rotate(10deg);
-    }
-
-    .hero-photo {
-      padding: 14px 14px 0;
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: clamp(330px, 82vw, 620px);
-      object-fit: contain;
-      object-position: center;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.02)),
-        rgba(38, 14, 29, 0.46);
-      box-shadow: 0 18px 42px rgba(25, 9, 18, 0.22);
-    }
-
-    .hero-content {
-      width: min(840px, 100%);
-      padding: clamp(22px, 6vw, 48px);
-    }
-
-    .eyebrow {
+    .page-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
-      padding: 8px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
+      width: fit-content;
+      margin-bottom: 2px;
+      padding: 7px 12px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.10));
-      backdrop-filter: blur(12px);
+      color: var(--rose-deep);
+      background: linear-gradient(135deg, rgba(255, 253, 250, 0.82), rgba(255, 241, 216, 0.58));
       font-size: 0.85rem;
       font-weight: 720;
     }
 
     h1 {
-      max-width: 10ch;
-      margin-bottom: 18px;
+      max-width: 12ch;
+      margin: 0;
+      color: var(--rose-deep);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.45rem, 18vw, 8.8rem);
-      line-height: 0.84;
+      font-size: clamp(2.65rem, 13vw, 5.7rem);
+      line-height: 0.90;
       letter-spacing: 0;
       text-wrap: balance;
       animation: title-rise 780ms ease-out both;
     }
 
-    .hero-copy {
-      max-width: 58ch;
-      margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: clamp(1rem, 3.5vw, 1.2rem);
-      line-height: 1.7;
+    .site-intro .lead {
+      max-width: 62ch;
+      font-size: clamp(1rem, 3.4vw, 1.14rem);
     }
 
-    .hero-actions {
+    .intro-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 6px;
     }
 
     .story-link {
@@ -192,19 +142,21 @@
       justify-content: center;
       min-height: 44px;
       padding: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(116, 35, 65, 0.14);
       border-radius: 999px;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.12);
+      color: var(--rose-deep);
+      background: rgba(255, 253, 250, 0.76);
       text-decoration: none;
       font-weight: 800;
-      backdrop-filter: blur(12px);
-      transition: transform 180ms ease, background 180ms ease;
+      box-shadow: 0 8px 18px rgba(57, 24, 39, 0.08);
+      transition: color 180ms ease, transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
     }
 
     .story-link:hover,
     .story-link:focus-visible {
-      background: rgba(255, 255, 255, 0.20);
+      color: #fff;
+      background: var(--button-gradient);
+      box-shadow: 0 12px 24px rgba(116, 35, 65, 0.18);
       transform: translateY(-1px);
       outline: none;
     }
@@ -1125,22 +1077,17 @@
 </head>
 <body>
   <main class="wrap" id="topo">
-    <section class="hero" aria-labelledby="titulo-principal">
-      <div class="hero-photo">
-        <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
+    <header class="site-intro" aria-labelledby="titulo-principal">
+      <p class="page-eyebrow">♥ Para Raquel</p>
+      <h1 id="titulo-principal">Feliz Dia dos Namorados</h1>
+      <p class="lead">
+        Um presente feito com as nossas fotos, nossas piadas, nossos dias leves e tudo que virou lembrança boa desde que a gente se encontrou.
+      </p>
+      <div class="intro-actions">
+        <button class="story-button" type="button" id="start-story">Começar nossa história</button>
+        <a class="story-link" href="#momentos">Ver fotos</a>
       </div>
-      <div class="hero-content">
-        <div class="eyebrow">♥ Para Raquel</div>
-        <h1 id="titulo-principal">Feliz Dia dos Namorados</h1>
-        <p class="hero-copy">
-          Um presente feito com as nossas fotos, nossas piadas, nossos dias leves e tudo que virou lembrança boa desde que a gente se encontrou.
-        </p>
-        <div class="hero-actions">
-          <button class="story-button" type="button" id="start-story">Começar nossa história</button>
-          <a class="story-link" href="#momentos">Ver fotos</a>
-        </div>
-      </div>
-    </section>
+    </header>
 
     <nav class="quick-nav" aria-label="Navegação da página">
       <a href="#mensagem-inicial">História</a>
