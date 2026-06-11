@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#b85c8c" />
+  <meta name="theme-color" content="#742341" />
   <title>Feliz Dia dos Namorados, Raquel</title>
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <style>
     :root {
-      --paper: rgba(255, 255, 255, 0.84);
-      --text: #3b2231;
-      --muted: #76586a;
-      --accent: #a94d78;
-      --accent-deep: #813254;
-      --line: rgba(169, 77, 120, 0.16);
-      --shadow: 0 20px 48px rgba(92, 38, 67, 0.14);
-      --soft-shadow: 0 12px 28px rgba(92, 38, 67, 0.09);
+      --bg: #fff8f1;
+      --paper: rgba(255, 253, 250, 0.90);
+      --paper-solid: #ffffff;
+      --ink: #2e2029;
+      --muted: #6f5b64;
+      --rose: #c84d78;
+      --rose-deep: #742341;
+      --plum: #4b2437;
+      --blush: #f8c5d2;
+      --sage: #2f6d60;
+      --gold: #d49a43;
+      --cream: #fff1d8;
+      --line: rgba(116, 35, 65, 0.16);
+      --shadow: 0 24px 64px rgba(57, 24, 39, 0.16);
+      --soft-shadow: 0 12px 30px rgba(57, 24, 39, 0.10);
+      --button-gradient: linear-gradient(135deg, #742341 0%, #c84d78 58%, #d49a43 100%);
+      --button-hover: linear-gradient(135deg, #5b1b33 0%, #b93f6c 52%, #2f6d60 100%);
+      --radius-lg: 28px;
+      --radius-md: 18px;
     }
 
     * {
@@ -28,30 +42,39 @@
     body {
       margin: 0;
       min-height: 100vh;
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 8% 4%, rgba(240, 166, 194, 0.28), transparent 26%),
-        radial-gradient(circle at 92% 14%, rgba(129, 50, 84, 0.14), transparent 24%),
-        linear-gradient(160deg, #fffafb 0%, #fff0f6 42%, #fffefe 100%);
+        radial-gradient(circle at 8% 4%, rgba(248, 197, 210, 0.48), transparent 30%),
+        radial-gradient(circle at 92% 12%, rgba(212, 154, 67, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 92%, rgba(47, 109, 96, 0.16), transparent 32%),
+        linear-gradient(125deg, #fffaf5 0%, #fff0f5 44%, #f7fbf5 100%);
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
+      z-index: -1;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(169, 77, 120, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(169, 77, 120, 0.035) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 70%);
+        linear-gradient(rgba(124, 41, 77, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 41, 77, 0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 72%);
     }
 
-    .wrap {
-      width: min(1060px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 16px 0 34px;
+    img {
+      display: block;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
     }
 
     h1,
@@ -61,19 +84,246 @@
       margin-top: 0;
     }
 
+    .wrap {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 14px 0 36px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: stretch;
+      border-radius: 34px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 16% 8%, rgba(248, 197, 210, 0.34), transparent 34%),
+        radial-gradient(circle at 84% 18%, rgba(212, 154, 67, 0.20), transparent 28%),
+        linear-gradient(135deg, var(--rose-deep) 0%, var(--plum) 48%, var(--sage) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      z-index: -1;
+      background: linear-gradient(180deg, transparent, rgba(38, 14, 29, 0.68));
+    }
+
+    .hero::after {
+      content: "♥";
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      color: rgba(255, 255, 255, 0.28);
+      font-size: clamp(2.5rem, 10vw, 5.8rem);
+      line-height: 1;
+      transform: rotate(10deg);
+    }
+
+    .hero-photo {
+      padding: 14px 14px 0;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: clamp(330px, 82vw, 620px);
+      object-fit: contain;
+      object-position: center;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.02)),
+        rgba(38, 14, 29, 0.46);
+      box-shadow: 0 18px 42px rgba(25, 9, 18, 0.22);
+    }
+
+    .hero-content {
+      width: min(840px, 100%);
+      padding: clamp(22px, 6vw, 48px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.10));
+      backdrop-filter: blur(12px);
+      font-size: 0.85rem;
+      font-weight: 720;
+    }
+
+    h1 {
+      max-width: 10ch;
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.45rem, 18vw, 8.8rem);
+      line-height: 0.84;
+      letter-spacing: 0;
+      text-wrap: balance;
+      animation: title-rise 780ms ease-out both;
+    }
+
+    .hero-copy {
+      max-width: 58ch;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      text-decoration: none;
+      font-weight: 800;
+      backdrop-filter: blur(12px);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .story-link:hover,
+    .story-link:focus-visible {
+      background: rgba(255, 255, 255, 0.20);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .quick-nav {
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin: 12px 0 2px;
+      padding: 8px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 253, 250, 0.78);
+      box-shadow: 0 14px 32px rgba(57, 24, 39, 0.10);
+      backdrop-filter: blur(16px);
+      scrollbar-width: none;
+    }
+
+    .quick-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-nav a {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--rose-deep);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 760;
+      transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .quick-nav a:hover,
+    .quick-nav a:focus-visible {
+      color: #fff;
+      background: var(--button-gradient);
+      box-shadow: 0 10px 18px rgba(116, 35, 65, 0.18);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .story-guide {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      z-index: 40;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 10px;
+      width: min(720px, calc(100% - 24px));
+      padding: 10px;
+      border: 1px solid rgba(116, 35, 65, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 253, 250, 0.88);
+      box-shadow: 0 18px 42px rgba(57, 24, 39, 0.18);
+      backdrop-filter: blur(18px);
+      transform: translateX(-50%);
+    }
+
+    .story-guide[hidden] {
+      display: none;
+    }
+
+    .story-guide-text {
+      min-width: 0;
+      padding-left: 8px;
+      color: var(--rose-deep);
+      font-size: 0.9rem;
+      font-weight: 780;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .story-guide-button,
+    .story-guide-close {
+      min-height: 38px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 820;
+    }
+
+    .story-guide-button {
+      padding: 0 14px;
+      border: 0;
+      color: #fff;
+      background: var(--button-gradient);
+    }
+
+    .story-guide-close {
+      width: 38px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
+      color: var(--rose-deep);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .story-focus {
+      border-radius: var(--radius-lg);
+      box-shadow: 0 0 0 4px rgba(212, 154, 67, 0.18);
+    }
+
     .section {
       position: relative;
-      padding: 30px 0 8px;
+      padding: 38px 0 6px;
     }
 
     .section + .section {
-      border-top: 1px solid rgba(169, 77, 120, 0.10);
+      border-top: 1px solid rgba(124, 41, 77, 0.09);
     }
 
     .section-header {
       display: grid;
-      gap: 8px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
     .section-title {
@@ -81,20 +331,22 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 0;
-      font-size: clamp(1.35rem, 6vw, 2rem);
-      line-height: 1.12;
+      font-size: clamp(1.55rem, 6vw, 2.35rem);
+      line-height: 1.08;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .section-title span {
       display: grid;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       flex: 0 0 auto;
       place-items: center;
       border-radius: 50%;
-      color: var(--accent);
-      background: rgba(169, 77, 120, 0.10);
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose-deep), var(--rose), var(--gold));
+      box-shadow: 0 10px 20px rgba(116, 35, 65, 0.16);
     }
 
     .lead {
@@ -108,34 +360,143 @@
     .intro-note {
       position: relative;
       padding: 18px;
-      border-left: 3px solid rgba(169, 77, 120, 0.28);
-      border-radius: 0 18px 18px 0;
-      background: rgba(255, 255, 255, 0.46);
+      border-left: 4px solid rgba(212, 154, 67, 0.70);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background:
+        linear-gradient(135deg, rgba(255, 253, 250, 0.80), rgba(255, 241, 216, 0.52)),
+        rgba(255, 255, 255, 0.58);
+    }
+
+    .memory-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .memory-stat {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 241, 216, 0.58)),
+        rgba(255, 255, 255, 0.70);
+      box-shadow: var(--soft-shadow);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .memory-stat:hover {
+      border-color: rgba(200, 77, 120, 0.28);
+      box-shadow: 0 16px 34px rgba(57, 24, 39, 0.13);
+      transform: translateY(-2px);
+    }
+
+    .memory-stat strong {
+      display: block;
+      color: var(--rose-deep);
+      font-size: clamp(1.45rem, 7vw, 2.25rem);
+      line-height: 1;
+    }
+
+    .memory-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background:
+        radial-gradient(circle at top left, rgba(248, 197, 210, 0.22), transparent 36%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 241, 216, 0.48));
+      box-shadow: var(--soft-shadow);
+    }
+
+    .timeline-date {
+      display: grid;
+      min-height: 58px;
+      place-items: center;
+      border-radius: 16px;
+      color: #fff;
+      background: var(--button-gradient);
+      box-shadow: 0 10px 20px rgba(116, 35, 65, 0.16);
+      font-weight: 850;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 5px;
+      font-size: 1.02rem;
+      line-height: 1.2;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     .carousel-card {
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 28px;
-      background: var(--paper);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(255, 253, 250, 0.94), rgba(255, 242, 248, 0.84)),
+        var(--paper);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
     }
 
     .carousel-top {
+      display: grid;
+      gap: 12px;
+      padding: 15px 15px 0;
+    }
+
+    .carousel-status {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 14px 14px 0;
+      gap: 14px;
     }
 
     .counter {
-      color: var(--accent-deep);
-      font-size: 0.84rem;
-      font-weight: 750;
+      color: var(--rose-deep);
+      font-size: 0.82rem;
+      font-weight: 820;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+
+    .progress-shell {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(116, 35, 65, 0.12);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--rose-deep), var(--rose), var(--gold), var(--sage));
+      transition: width 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .carousel-controls {
@@ -144,32 +505,113 @@
     }
 
     .control,
-    .back-top {
+    .back-top,
+    .letter-button,
+    .story-button,
+    .surprise-button,
+    .memory-toggle {
+      position: relative;
+      overflow: hidden;
       min-width: 44px;
       min-height: 44px;
-      border: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 999px;
       color: #fff;
-      background: var(--accent-deep);
-      box-shadow: 0 10px 20px rgba(129, 50, 84, 0.20);
+      background: var(--button-gradient);
+      box-shadow:
+        0 12px 24px rgba(116, 35, 65, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.26);
       cursor: pointer;
-      font: inherit;
-      font-weight: 800;
-      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      font-weight: 840;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+
+    .control {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      padding: 0;
+      font-size: 1.35rem;
+      line-height: 1;
     }
 
     .control:hover,
-    .back-top:hover {
-      background: var(--accent);
+    .back-top:hover,
+    .letter-button:hover,
+    .story-button:hover,
+    .surprise-button:hover,
+    .memory-toggle:hover {
+      background: var(--button-hover);
       transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(129, 50, 84, 0.24);
+      box-shadow:
+        0 16px 30px rgba(116, 35, 65, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+      filter: saturate(1.05);
+    }
+
+    .control:active,
+    .back-top:active,
+    .letter-button:active,
+    .story-button:active,
+    .surprise-button:active,
+    .memory-toggle:active,
+    .quick-nav a:active {
+      transform: translateY(0) scale(0.98);
     }
 
     .control:focus-visible,
     .dot-button:focus-visible,
-    .back-top:focus-visible {
-      outline: 3px solid rgba(169, 77, 120, 0.26);
+    .back-top:focus-visible,
+    .letter-button:focus-visible,
+    .story-button:focus-visible,
+    .surprise-button:focus-visible,
+    .memory-toggle:focus-visible,
+    .story-guide-button:focus-visible,
+    .story-guide-close:focus-visible,
+    .quick-nav a:focus-visible {
+      outline: 3px solid rgba(200, 77, 120, 0.26);
       outline-offset: 3px;
+    }
+
+    #toggle-autoplay {
+      background: linear-gradient(135deg, var(--sage), #408777 62%, var(--gold));
+    }
+
+    .back-top {
+      display: grid;
+      width: 44px;
+      padding: 0;
+      place-items: center;
+    }
+
+    .letter-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+    }
+
+    .story-button,
+    .surprise-button,
+    .memory-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+    }
+
+    .memory-toggle {
+      min-height: 38px;
+      margin-top: 14px;
+      color: var(--rose-deep);
+      background: linear-gradient(135deg, rgba(255, 253, 250, 0.95), rgba(255, 241, 216, 0.76));
+      border: 1px solid rgba(116, 35, 65, 0.14);
+      box-shadow: 0 8px 18px rgba(57, 24, 39, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .memory-toggle:hover {
+      color: #fff;
     }
 
     .carousel-viewport {
@@ -179,85 +621,117 @@
 
     .carousel-track {
       display: flex;
-      transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 540ms cubic-bezier(0.2, 0.8, 0.2, 1);
       will-change: transform;
     }
 
     .slide {
       min-width: 100%;
-      padding: 14px;
+      padding: 15px;
     }
 
     .slide-frame {
       position: relative;
       overflow: hidden;
       display: grid;
-      align-items: end;
-      min-height: clamp(430px, 108vw, 660px);
-      border-radius: 22px;
-      background: #f7dce8;
+      grid-template-rows: auto auto;
+      align-items: stretch;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(248, 197, 210, 0.30), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(47, 109, 96, 0.10), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.90), rgba(255, 246, 237, 0.94));
       isolation: isolate;
     }
 
     .slide-frame img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: calc(100% - 24px);
+      height: clamp(340px, 88vw, 620px);
+      margin: 12px auto 0;
+      object-fit: contain;
       object-position: center;
-      transform: scale(1.01);
-      z-index: -2;
-    }
-
-    .slide-frame.rotate-right img {
-      transform: rotate(90deg) scale(1.35);
-    }
-
-    .slide-frame.rotate-right-45 img {
-      transform: rotate(45deg) scale(1.45);
+      background:
+        linear-gradient(135deg, rgba(116, 35, 65, 0.10), rgba(47, 109, 96, 0.08)),
+        rgba(255, 253, 250, 0.72);
     }
 
     .slide-frame::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(20, 9, 16, 0.02) 32%, rgba(20, 9, 16, 0.78) 100%);
+      content: none;
     }
 
     .slide-caption {
+      max-width: 680px;
       padding: 22px 18px 18px;
-      color: #fff;
+      color: var(--ink);
     }
 
     .slide-kicker {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 10px;
       padding: 8px 11px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(8px);
+      background: linear-gradient(135deg, rgba(200, 77, 120, 0.12), rgba(212, 154, 67, 0.12));
+      color: var(--rose-deep);
       font-size: 0.82rem;
-      font-weight: 700;
+      font-weight: 760;
+    }
+
+    .emotion-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--button-gradient);
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .slide-caption h3 {
-      margin-bottom: 7px;
-      font-size: clamp(1.35rem, 7vw, 2.15rem);
-      line-height: 1.05;
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 7vw, 2.45rem);
+      line-height: 1.02;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .slide-caption p {
-      max-width: 48ch;
+      max-width: 52ch;
       margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.90);
-      line-height: 1.55;
-      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 0.99rem;
+    }
+
+    .memory-letter {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 360ms ease, opacity 260ms ease, margin-top 260ms ease;
+    }
+
+    .memory-letter.is-open {
+      max-height: 240px;
+      margin-top: 12px;
+      opacity: 1;
+    }
+
+    .memory-letter-inner {
+      padding: 14px;
+      border: 1px solid rgba(116, 35, 65, 0.12);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at top left, rgba(248, 197, 210, 0.20), transparent 42%),
+        rgba(255, 253, 250, 0.76);
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
     }
 
     .dots {
@@ -265,44 +739,121 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      padding: 4px 14px 16px;
+      padding: 4px 14px 18px;
     }
 
     .dot-button {
       width: 11px;
       height: 11px;
       padding: 0;
-      border: 0;
+      border: 1px solid rgba(116, 35, 65, 0.12);
       border-radius: 999px;
-      background: rgba(129, 50, 84, 0.22);
+      background: rgba(116, 35, 65, 0.18);
       cursor: pointer;
-      transition: width 200ms ease, background 200ms ease;
+      transition: width 200ms ease, background 200ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .dot-button:hover {
+      background: rgba(200, 77, 120, 0.42);
+      transform: translateY(-1px);
     }
 
     .dot-button[aria-current="true"] {
-      width: 30px;
-      background: var(--accent-deep);
+      width: 32px;
+      background: var(--button-gradient);
+      box-shadow: 0 8px 16px rgba(116, 35, 65, 0.20);
+    }
+
+    .mural-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .polaroid {
+      margin: 0;
+      padding: 10px 10px 14px;
+      border: 1px solid rgba(116, 35, 65, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 253, 250, 0.92);
+      box-shadow: var(--soft-shadow);
+      transform: rotate(var(--tilt, -1deg));
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .polaroid:hover {
+      box-shadow: 0 18px 38px rgba(57, 24, 39, 0.16);
+      transform: rotate(0deg) translateY(-2px);
+    }
+
+    .polaroid img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background:
+        linear-gradient(135deg, rgba(116, 35, 65, 0.09), rgba(47, 109, 96, 0.08)),
+        rgba(255, 253, 250, 0.72);
+    }
+
+    .polaroid figcaption {
+      margin-top: 10px;
+      color: var(--rose-deep);
+      font-size: 0.9rem;
+      font-weight: 760;
+      line-height: 1.35;
+      text-align: center;
     }
 
     .messages {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .message {
-      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      min-height: 142px;
+      padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      color: var(--text);
-      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,247,251,0.94));
+      border-radius: var(--radius-md);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(248, 197, 210, 0.24), transparent 38%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 241, 216, 0.52));
       box-shadow: var(--soft-shadow);
       line-height: 1.7;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .message::after {
+      content: "♥";
+      position: absolute;
+      right: 16px;
+      bottom: 8px;
+      color: rgba(178, 69, 114, 0.12);
+      font-size: 3rem;
+      line-height: 1;
     }
 
     .message strong {
-      color: var(--accent-deep);
+      display: block;
+      margin-bottom: 6px;
+      color: var(--rose-deep);
+    }
+
+    .message:hover {
+      border-color: rgba(47, 109, 96, 0.26);
+      box-shadow: 0 16px 34px rgba(57, 24, 39, 0.13);
+      transform: translateY(-2px);
+    }
+
+    .message:nth-child(2n) {
+      background:
+        radial-gradient(circle at top right, rgba(47, 109, 96, 0.13), transparent 38%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 240, 245, 0.58));
     }
 
     .finale {
@@ -310,12 +861,13 @@
       justify-items: center;
       gap: 18px;
       padding: 30px 18px;
-      border-radius: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       text-align: center;
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,241,247,0.88)),
-        radial-gradient(circle at top, rgba(240, 166, 194, 0.26), transparent 58%);
-      border: 1px solid var(--line);
+        radial-gradient(circle at 18% 0%, rgba(248, 197, 210, 0.34), transparent 38%),
+        radial-gradient(circle at 92% 18%, rgba(212, 154, 67, 0.22), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 251, 246, 0.82));
       box-shadow: var(--soft-shadow);
     }
 
@@ -324,10 +876,77 @@
     }
 
     .signature {
-      color: var(--accent-deep);
+      color: var(--rose-deep);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 700;
+    }
+
+    .letter-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 420ms ease, opacity 280ms ease;
+    }
+
+    .letter-panel.is-open {
+      max-height: 520px;
+      opacity: 1;
+    }
+
+    .letter-card {
+      max-width: 680px;
+      margin: 4px auto 0;
+      padding: 24px;
+      border: 1px solid rgba(124, 41, 77, 0.14);
+      border-radius: 18px;
+      background:
+        linear-gradient(160deg, rgba(255, 253, 250, 0.96), rgba(255, 241, 216, 0.72)),
+        var(--paper-solid);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), var(--soft-shadow);
+      color: var(--muted);
+      line-height: 1.72;
+      text-align: left;
+      transform-origin: top;
+    }
+
+    .letter-card p {
+      margin-bottom: 14px;
+    }
+
+    .letter-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .surprise-box {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      width: min(680px, 100%);
+      padding-top: 4px;
+    }
+
+    .surprise-message {
+      min-height: 54px;
+      width: 100%;
+      margin: 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(116, 35, 65, 0.12);
+      border-radius: 18px;
+      color: var(--rose-deep);
+      background: rgba(255, 253, 250, 0.70);
+      font-weight: 760;
+      line-height: 1.55;
+    }
+
+    .tap-heart {
+      position: fixed;
+      z-index: 60;
+      pointer-events: none;
+      color: var(--rose);
+      font-size: 1.15rem;
+      line-height: 1;
+      animation: tap-heart 700ms ease-out forwards;
     }
 
     .footer {
@@ -340,8 +959,47 @@
 
     .heart {
       display: inline-block;
-      color: #e25d8d;
+      color: #d95582;
       transform: translateY(1px);
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes title-rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes tap-heart {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -30%) scale(0.8);
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+        transform: translate(-50%, -150%) scale(1.25);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -353,22 +1011,64 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        width: min(100% - 20px, 1120px);
+      }
+
+      .memory-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-date {
+        width: fit-content;
+        min-width: 76px;
+      }
+
+      .carousel-status {
+        align-items: flex-start;
+      }
+
+      .carousel-controls {
+        flex-wrap: nowrap;
+      }
+
+      .story-guide {
+        grid-template-columns: 1fr auto;
+        border-radius: 22px;
+      }
+
+      .story-guide-text {
+        grid-column: 1 / -1;
+        white-space: normal;
+      }
     }
 
     @media (min-width: 720px) {
       .wrap {
-        width: min(1060px, calc(100% - 44px));
-        padding: 24px 0 46px;
+        width: min(1120px, calc(100% - 44px));
+        padding: 24px 0 48px;
       }
 
       .section {
-        padding-top: 42px;
+        padding-top: 50px;
       }
 
       .section-header {
-        grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
         align-items: end;
-        gap: 28px;
+        gap: 30px;
       }
 
       .carousel-top {
@@ -380,27 +1080,43 @@
       }
 
       .slide-frame {
-        min-height: clamp(520px, 70vw, 680px);
+        min-height: 0;
+      }
+
+      .slide-frame img {
+        height: clamp(520px, 66vw, 720px);
       }
 
       .slide-caption {
-        padding: 32px;
+        padding: 36px;
       }
 
       .dots {
-        padding-bottom: 20px;
+        padding-bottom: 22px;
       }
 
       .messages {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .mural-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
       .finale {
-        padding: 42px;
+        padding: 44px;
       }
     }
 
     @media (min-width: 980px) {
+      .section-header {
+        grid-template-columns: minmax(0, 0.48fr) minmax(0, 1fr);
+      }
+
       .messages {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -409,7 +1125,39 @@
 </head>
 <body>
   <main class="wrap" id="topo">
-    <section class="section" aria-labelledby="mensagem-inicial">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-photo">
+        <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
+      </div>
+      <div class="hero-content">
+        <div class="eyebrow">♥ Para Raquel</div>
+        <h1 id="titulo-principal">Feliz Dia dos Namorados</h1>
+        <p class="hero-copy">
+          Um presente feito com as nossas fotos, nossas piadas, nossos dias leves e tudo que virou lembrança boa desde que a gente se encontrou.
+        </p>
+        <div class="hero-actions">
+          <button class="story-button" type="button" id="start-story">Começar nossa história</button>
+          <a class="story-link" href="#momentos">Ver fotos</a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="quick-nav" aria-label="Navegação da página">
+      <a href="#mensagem-inicial">História</a>
+      <a href="#linha-do-tempo">Linha</a>
+      <a href="#momentos">Fotos</a>
+      <a href="#mural">Mural</a>
+      <a href="#mensagens">Amor</a>
+      <a href="#final">Carta</a>
+    </nav>
+
+    <div class="story-guide" id="story-guide" hidden>
+      <div class="story-guide-text" id="story-guide-text">Capítulo 1 de 5</div>
+      <button class="story-guide-button" type="button" id="story-next">Próximo</button>
+      <button class="story-guide-close" type="button" id="story-close" aria-label="Sair do modo história">×</button>
+    </div>
+
+    <section class="section reveal" aria-labelledby="mensagem-inicial">
       <div class="section-header">
         <h2 class="section-title" id="mensagem-inicial"><span>💌</span> Uma mensagem para você</h2>
         <p class="lead intro-note">
@@ -417,9 +1165,78 @@
           um lugar para voltar sempre que bater saudade, um espaço feito com carinho para celebrar a sorte que eu tenho de ter você na minha vida.
         </p>
       </div>
+
+      <div class="memory-strip" aria-label="Resumo das nossas memórias">
+        <div class="memory-stat">
+          <strong>15</strong>
+          <span>memórias escolhidas com carinho</span>
+        </div>
+        <div class="memory-stat">
+          <strong id="days-counter">...</strong>
+          <span>dias desde 06/04/2025</span>
+        </div>
+        <div class="memory-stat">
+          <strong>∞</strong>
+          <span>motivos para escolher você</span>
+        </div>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="momentos">
+    <section class="section reveal" aria-labelledby="linha-do-tempo">
+      <div class="section-header">
+        <h2 class="section-title" id="linha-do-tempo"><span>🕰️</span> Linha do tempo</h2>
+        <p class="lead">
+          Uma versão curtinha do caminho que a gente foi construindo desde o primeiro dia.
+        </p>
+      </div>
+
+      <div class="timeline" aria-label="Linha do tempo da nossa história">
+        <article class="timeline-item">
+          <div class="timeline-date">06/04</div>
+          <div>
+            <h3>Quando tudo começou</h3>
+            <p>O primeiro capítulo, com direito a foto da ID e uma história que já começou com a nossa cara.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Village</div>
+          <div>
+            <h3>A entrega do Village</h3>
+            <p>Uma memória simples que virou parte da nossa narrativa e merece seu lugar aqui.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Churras</div>
+          <div>
+            <h3>Primeiro churras</h3>
+            <p>Depois da primeira vez, o Betão virou parte oficial dos nossos finais de semana.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Home</div>
+          <div>
+            <h3>Primeiro home office</h3>
+            <p>A rotina ficou mais bonita quando trabalhar de casa também virou estar perto de você.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Theo</div>
+          <div>
+            <h3>Família no meio da história</h3>
+            <p>Buscar, levar, rir e cuidar: pequenos gestos que deixam tudo mais nosso.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Sempre</div>
+          <div>
+            <h3>Amo te amar</h3>
+            <p>O capítulo que segue aberto para mais fotos, planos, risadas e escolhas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="momentos">
       <div class="section-header">
         <h2 class="section-title" id="momentos"><span>📷</span> Nossos momentos</h2>
         <p class="lead">
@@ -429,176 +1246,242 @@
 
       <div class="carousel-card" aria-roledescription="carrossel" aria-label="Carrossel com 15 fotos de Raquel e Lucas">
         <div class="carousel-top">
-          <div class="counter" id="carousel-counter" aria-live="polite">1 de 15</div>
-          <div class="carousel-controls">
-            <button class="control" type="button" id="prev-slide" aria-label="Foto anterior">‹</button>
-            <button class="control" type="button" id="next-slide" aria-label="Próxima foto">›</button>
+          <div class="carousel-status">
+            <div class="counter" id="carousel-counter" aria-live="polite">1 de 15</div>
+            <div class="carousel-controls">
+              <button class="control" type="button" id="prev-slide" aria-label="Foto anterior">‹</button>
+              <button class="control" type="button" id="toggle-autoplay" aria-label="Pausar carrossel">Ⅱ</button>
+              <button class="control" type="button" id="next-slide" aria-label="Próxima foto">›</button>
+            </div>
+          </div>
+          <div class="progress-shell" aria-hidden="true">
+            <div class="progress-bar" id="carousel-progress"></div>
           </div>
         </div>
 
         <div class="carousel-viewport" id="carousel-viewport">
           <div class="carousel-track" id="carousel-track">
-            <article class="slide" aria-label="Foto 1 de 15">
-              <div class="slide-frame rotate-right-45">
-                <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" decoding="async" fetchpriority="high" />
+            <article class="slide" aria-label="Foto 1 de 15" data-mood="Começo">
+              <div class="slide-frame">
+                <img src="primeirodiajuntos.jpeg" alt="Primeiro dia juntos" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 1 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Começo</span> Foto 1 de 15</div>
                   <h3>Quando nos conhecemos</h3>
-                  <p>Esse dia ficou marcado nas nossas memórias, lembro que voce mandou foto da minha ID pra dinda chamar a policia se precisasse KKKK.</p>
+                  <p>Esse dia ficou marcado nas nossas memórias, lembro que você mandou foto da minha ID pra dinda chamar a polícia se precisasse KKKK.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Essa foto é o primeiro lembrete de que a nossa história começou com cuidado, brincadeira e uma coragem boa de se aproximar.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 2 de 15">
+            <article class="slide" aria-label="Foto 2 de 15" data-mood="Coisas nossas">
               <div class="slide-frame">
                 <img src="serialkillers.jpeg" alt="Livro Serial Killers" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 2 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Coisas nossas</span> Foto 2 de 15</div>
                   <h3>Tudo em comum</h3>
-                  <p>Logo ja achamos muitas coisas em comum né, inclusive trocamos livros e nenhum conseguiu ler inteiro hahah.</p>
+                  <p>Logo já achamos muitas coisas em comum né, inclusive trocamos livros e nenhum conseguiu ler inteiro hahah.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Eu gosto de lembrar que até os livros não terminados viraram uma prova de que a gente sempre encontra assunto, graça e alguma conexão.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 3 de 15">
+            <article class="slide" aria-label="Foto 3 de 15" data-mood="Começo">
               <div class="slide-frame">
                 <img src="entregadovilage.jpeg" alt="Entrega do Village" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 3 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Começo</span> Foto 3 de 15</div>
                   <h3>A entrega do village</h3>
                   <p>O tiozão fez um bom trabalho, vamos dar um crédito pra ele tb.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Tem memórias que parecem pequenas, mas quando olho de novo vejo que elas ajudaram a construir esse lugar nosso.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 4 de 15">
+            <article class="slide" aria-label="Foto 4 de 15" data-mood="Valor">
               <div class="slide-frame">
                 <img src="valemuitomaisq10.jpeg" alt="Vale muito mais que dez" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 4 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Valor</span> Foto 4 de 15</div>
                   <h3>Seu valor</h3>
-                  <p>Nessa foto voce ta com uma etiqueta de $10, mas quero que saiba que vc vale muito mais que isso.</p>
+                  <p>Nessa foto você tá com uma etiqueta de $10, mas quero que saiba que você vale muito mais que isso.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Essa brincadeira virou um jeito perfeito de dizer o óbvio: você tem um valor imenso para mim.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 5 de 15">
+            <article class="slide" aria-label="Foto 5 de 15" data-mood="Amor">
               <div class="slide-frame">
                 <img src="merrendi.jpeg" alt="Merrendi" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 5 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Amor</span> Foto 5 de 15</div>
                   <h3>Merrendi</h3>
-                  <p>Aos poucos fui me rendendo a voce e seu amor, nesse dia ja tinha me rendido completamente.</p>
+                  <p>Aos poucos fui me rendendo a você e seu amor, nesse dia já tinha me rendido completamente.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Aqui já não era mais só encanto. Era aquela certeza quieta de que estar com você fazia tudo ficar melhor.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 6 de 15">
+            <article class="slide" aria-label="Foto 6 de 15" data-mood="Família">
               <div class="slide-frame">
                 <img src="primeirochurras.jpeg" alt="Primeiro churrasco juntos" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 6 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Família</span> Foto 6 de 15</div>
                   <h3>Primeiro churras</h3>
-                  <p>Demorei pra ir em um churras do Betão, mas depois que fui a primeira vez nunca mais parei de ir!.</p>
+                  <p>Demorei pra ir em um churras do Betão, mas depois que fui a primeira vez nunca mais parei de ir.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Essa memória tem cheiro de casa cheia, conversa boa e a sensação de ser recebido em um pedaço importante da sua vida.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 7 de 15">
+            <article class="slide" aria-label="Foto 7 de 15" data-mood="Família">
               <div class="slide-frame">
                 <img src="amoobeto.jpeg" alt="Amo o Beto" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 7 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Família</span> Foto 7 de 15</div>
                   <h3>O Betão</h3>
                   <p>Eu amo ele.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Algumas pessoas chegam junto com o amor e acabam virando parte da alegria também.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 8 de 15">
+            <article class="slide" aria-label="Foto 8 de 15" data-mood="Rotina">
               <div class="slide-frame">
                 <img src="primeirodormidaonasala.jpeg" alt="Primeira dormida na sala" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 8 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Rotina</span> Foto 8 de 15</div>
                   <h3>Primeiro dormidão na sala</h3>
                   <p>Nosso ninho de amor é com o colchão na sala.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Nem todo lugar precisa ser perfeito quando a companhia faz tudo parecer confortável e nosso.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 9 de 15">
+            <article class="slide" aria-label="Foto 9 de 15" data-mood="Rotina">
               <div class="slide-frame">
                 <img src="primeirohomeoffice.jpeg" alt="Primeiro home office juntos" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 9 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Rotina</span> Foto 9 de 15</div>
                   <h3>Primeiro home office</h3>
-                  <p>Fazer homeoffice nunca foi tão bom.</p>
+                  <p>Fazer home office nunca foi tão bom.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">A rotina fica diferente quando até um dia comum de trabalho vira uma lembrança boa do nosso jeito de estar perto.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 10 de 15">
+            <article class="slide" aria-label="Foto 10 de 15" data-mood="Futuro">
               <div class="slide-frame">
                 <img src="noisveios.jpeg" alt="Nós dois juntos" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 10 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Futuro</span> Foto 10 de 15</div>
                   <h3>Nós veios</h3>
                   <p>Já até sabemos como seremos quando envelhecer, obrigado GPT.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Essa brincadeira é engraçada porque, no fundo, eu gosto de imaginar muitas versões de nós ainda por aí.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 11 de 15">
+            <article class="slide" aria-label="Foto 11 de 15" data-mood="Coisas nossas">
               <div class="slide-frame">
-                <img src="quemehmeunenemsoueu.jpeg" alt="Quem e meu nenem sou eu" loading="lazy" decoding="async" />
+                <img src="quemehmeunenemsoueu.jpeg" alt="Quem é meu neném sou eu" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 11 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Coisas nossas</span> Foto 11 de 15</div>
                   <h3>Meu neném</h3>
-                  <p>Sou seu nenem.</p>
+                  <p>Sou seu neném.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Toda história de amor tem suas frases internas. Essa é uma das nossas, simples e impossível de explicar direito para quem está de fora.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 12 de 15">
+            <article class="slide" aria-label="Foto 12 de 15" data-mood="Cuidado">
               <div class="slide-frame">
-                <img src="fezatearrumaraarea.jpeg" alt="Fez ate arrumar a area" loading="lazy" decoding="async" />
+                <img src="fezatearrumaraarea.jpeg" alt="Fez até arrumar a área" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 12 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Cuidado</span> Foto 12 de 15</div>
                   <h3>O impossível é só questão de opinião</h3>
                   <p>Você fez o impossível parecer possível.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Você tem esse jeito de mexer nas coisas e, de repente, algo que parecia distante fica mais leve, mais possível, mais bonito.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 13 de 15">
+            <article class="slide" aria-label="Foto 13 de 15" data-mood="Família">
               <div class="slide-frame">
                 <img src="amootheo.jpeg" alt="Amo o Theo" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 13 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Família</span> Foto 13 de 15</div>
                   <h3>Amo o Theo</h3>
                   <p>Amo muito o Theo, quero que ele cresça e continue sendo essa pessoa do bem.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Amar você também me fez criar carinho por quem é importante para você. O Theo faz parte desse pacote bonito.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 14 de 15">
+            <article class="slide" aria-label="Foto 14 de 15" data-mood="Família">
               <div class="slide-frame">
                 <img src="buscarotheo.jpeg" alt="Buscar o Theo" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 14 de 15</div>
-                  <h3>Não era sabado, mas foi o dia do banho</h3>
-                  <p>Amo buscar e levar o theo para algum lugar hahah.</p>
+                  <div class="slide-kicker"><span class="emotion-tag">Família</span> Foto 14 de 15</div>
+                  <h3>Não era sábado, mas foi o dia do banho</h3>
+                  <p>Amo buscar e levar o Theo para algum lugar hahah.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Esses pequenos compromissos também viram memória, porque têm cuidado, presença e um pouco da rotina que eu gosto de dividir com você.</div>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="slide" aria-label="Foto 15 de 15">
+            <article class="slide" aria-label="Foto 15 de 15" data-mood="Futuro">
               <div class="slide-frame">
                 <img src="amoteamar.jpeg" alt="Amo te amar" loading="lazy" decoding="async" />
                 <div class="slide-caption">
-                  <div class="slide-kicker">Foto 15 de 15</div>
+                  <div class="slide-kicker"><span class="emotion-tag">Futuro</span> Foto 15 de 15</div>
                   <h3>Amo te amar</h3>
                   <p>Que venham mais fotos, mais planos, mais risadas e mais motivos para escolher você todos os dias.</p>
+                  <button class="memory-toggle" type="button" aria-expanded="false">Ler lembrança</button>
+                  <div class="memory-letter">
+                    <div class="memory-letter-inner">Essa é a frase que fecha a galeria, mas não fecha a história. Ainda quero muitos capítulos com você.</div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -609,7 +1492,43 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="mensagens">
+    <section class="section reveal" aria-labelledby="mural">
+      <div class="section-header">
+        <h2 class="section-title" id="mural"><span>🖼️</span> Mural de extras</h2>
+        <p class="lead">
+          Algumas fotos que ficaram fora do carrossel, mas ainda fazem parte desse presente.
+        </p>
+      </div>
+
+      <div class="mural-grid" aria-label="Mural de fotos extras">
+        <figure class="polaroid" style="--tilt: -1.4deg;">
+          <img src="amoajo.jpeg" alt="Amo ajo" loading="lazy" decoding="async" />
+          <figcaption>Mais uma do nosso jeito</figcaption>
+        </figure>
+        <figure class="polaroid" style="--tilt: 1.2deg;">
+          <img src="amotodosvcs.jpeg" alt="Amo todos vocês" loading="lazy" decoding="async" />
+          <figcaption>Todo mundo junto</figcaption>
+        </figure>
+        <figure class="polaroid" style="--tilt: -0.8deg;">
+          <img src="beijoMaldito.jpeg" alt="Beijo especial" loading="lazy" decoding="async" />
+          <figcaption>Um beijo, uma memória</figcaption>
+        </figure>
+        <figure class="polaroid" style="--tilt: 1.5deg;">
+          <img src="desenhothales.jpeg" alt="Desenho do Thales" loading="lazy" decoding="async" />
+          <figcaption>Detalhes que viram história</figcaption>
+        </figure>
+        <figure class="polaroid" style="--tilt: -1deg;">
+          <img src="primeiraviagem.jpeg" alt="Primeira viagem" loading="lazy" decoding="async" />
+          <figcaption>Primeira viagem</figcaption>
+        </figure>
+        <figure class="polaroid" style="--tilt: 0.9deg;">
+          <img src="tapago.jpeg" alt="Tá pago" loading="lazy" decoding="async" />
+          <figcaption>Tá pago</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="mensagens">
       <div class="section-header">
         <h2 class="section-title" id="mensagens"><span>💖</span> Mensagens de amor</h2>
         <p class="lead">
@@ -627,13 +1546,26 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="final">
+    <section class="section reveal" aria-labelledby="final">
       <div class="finale">
         <h2 class="section-title" id="final"><span>🌷</span> Final</h2>
         <p class="lead">
           Raquel, obrigado por existir na minha vida. Que esse presente guarde um pedaço do que eu sinto por você:
           carinho, admiração, saudade boa e muito amor.
         </p>
+        <button class="letter-button" type="button" id="letter-toggle" aria-expanded="false" aria-controls="letter-panel">Abrir carta</button>
+        <div class="letter-panel" id="letter-panel">
+          <div class="letter-card">
+            <p>Raquel,</p>
+            <p>Eu amo a nossa história, amo nossos detalhes e amo a forma como você entrou na minha vida. Obrigado por ser companhia, carinho, risada, cuidado e casa.</p>
+            <p>Que esse seja só mais um pedacinho do tanto que ainda vamos viver: mais fotos, mais planos, mais Theo, mais Betão, mais colchão na sala e mais motivos para escolher você.</p>
+            <p><strong>Com amor, Lucas.</strong></p>
+          </div>
+        </div>
+        <div class="surprise-box">
+          <button class="surprise-button" type="button" id="surprise-button">Me dá uma surpresa</button>
+          <p class="surprise-message" id="surprise-message" aria-live="polite">Clique para revelar uma mensagem só sua.</p>
+        </div>
         <div class="signature">Com amor, Lucas</div>
         <button class="back-top" type="button" id="back-top" aria-label="Voltar ao começo">↑</button>
       </div>
@@ -649,15 +1581,45 @@
     const viewport = document.getElementById("carousel-viewport");
     const slides = Array.from(document.querySelectorAll(".slide"));
     const counter = document.getElementById("carousel-counter");
+    const progress = document.getElementById("carousel-progress");
     const dotsContainer = document.getElementById("carousel-dots");
     const prevButton = document.getElementById("prev-slide");
     const nextButton = document.getElementById("next-slide");
+    const autoplayButton = document.getElementById("toggle-autoplay");
     const backTopButton = document.getElementById("back-top");
+    const letterToggle = document.getElementById("letter-toggle");
+    const letterPanel = document.getElementById("letter-panel");
+    const startStoryButton = document.getElementById("start-story");
+    const storyGuide = document.getElementById("story-guide");
+    const storyGuideText = document.getElementById("story-guide-text");
+    const storyNextButton = document.getElementById("story-next");
+    const storyCloseButton = document.getElementById("story-close");
+    const daysCounter = document.getElementById("days-counter");
+    const surpriseButton = document.getElementById("surprise-button");
+    const surpriseMessage = document.getElementById("surprise-message");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const autoplayDelay = 5200;
+    const autoplayDelay = 5600;
+    const storySteps = [
+      { id: "mensagem-inicial", label: "Capítulo 1 de 5: a mensagem" },
+      { id: "linha-do-tempo", label: "Capítulo 2 de 5: nossa linha do tempo" },
+      { id: "momentos", label: "Capítulo 3 de 5: nossas fotos" },
+      { id: "mensagens", label: "Capítulo 4 de 5: mensagens de amor" },
+      { id: "final", label: "Capítulo 5 de 5: a carta final" }
+    ];
+    const surpriseMessages = [
+      "Você é meu lugar favorito até nos dias mais comuns.",
+      "Eu escolheria você de novo, inclusive nos detalhes pequenos.",
+      "Amo o tanto que a nossa história tem a nossa cara.",
+      "Você deixa minha rotina mais leve, bonita e engraçada.",
+      "Ainda quero muitas fotos, risadas e planos com você.",
+      "Obrigado por ser carinho, parceria e casa."
+    ];
 
     let currentIndex = 0;
     let autoplayId;
+    let isAutoplaying = !reduceMotion;
+    let currentStoryStep = 0;
+    let lastSurpriseIndex = -1;
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -676,8 +1638,10 @@
 
     function goToSlide(index) {
       currentIndex = (index + slides.length) % slides.length;
+      const mood = slides[currentIndex].dataset.mood || "Memória";
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      counter.textContent = `${currentIndex + 1} de ${slides.length}`;
+      counter.textContent = `${mood} · ${currentIndex + 1} de ${slides.length}`;
+      progress.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
 
       dots.forEach((dot, dotIndex) => {
         dot.setAttribute("aria-current", String(dotIndex === currentIndex));
@@ -697,7 +1661,9 @@
     }
 
     function startAutoplay() {
-      if (reduceMotion) {
+      window.clearInterval(autoplayId);
+
+      if (!isAutoplaying || reduceMotion) {
         return;
       }
 
@@ -705,8 +1671,81 @@
     }
 
     function restartAutoplay() {
-      window.clearInterval(autoplayId);
       startAutoplay();
+    }
+
+    function updateAutoplayButton() {
+      autoplayButton.textContent = isAutoplaying ? "Ⅱ" : "▶";
+      autoplayButton.setAttribute("aria-label", isAutoplaying ? "Pausar carrossel" : "Reproduzir carrossel");
+    }
+
+    function updateDaysCounter() {
+      const startDate = new Date(2025, 3, 6);
+      const today = new Date();
+      startDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+      const days = Math.max(0, Math.floor((today - startDate) / 86400000));
+      daysCounter.textContent = String(days);
+    }
+
+    function getStoryTarget(step) {
+      const target = document.getElementById(storySteps[step].id);
+      return target ? target.closest(".section") || target : null;
+    }
+
+    function clearStoryFocus() {
+      document.querySelectorAll(".story-focus").forEach((element) => element.classList.remove("story-focus"));
+    }
+
+    function showStoryStep(step) {
+      currentStoryStep = Math.min(step, storySteps.length - 1);
+      const target = getStoryTarget(currentStoryStep);
+
+      if (!target) {
+        return;
+      }
+
+      storyGuide.hidden = false;
+      storyGuideText.textContent = storySteps[currentStoryStep].label;
+      storyNextButton.textContent = currentStoryStep === storySteps.length - 1 ? "Finalizar" : "Próximo";
+      clearStoryFocus();
+      target.classList.add("story-focus");
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }
+
+    function endStoryMode() {
+      storyGuide.hidden = true;
+      clearStoryFocus();
+    }
+
+    function showSurprise() {
+      let nextIndex = Math.floor(Math.random() * surpriseMessages.length);
+
+      if (surpriseMessages.length > 1) {
+        while (nextIndex === lastSurpriseIndex) {
+          nextIndex = Math.floor(Math.random() * surpriseMessages.length);
+        }
+      }
+
+      lastSurpriseIndex = nextIndex;
+      surpriseMessage.textContent = surpriseMessages[nextIndex];
+    }
+
+    function spawnTapHeart(event) {
+      if (reduceMotion) {
+        return;
+      }
+
+      const heart = document.createElement("span");
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = event.clientX || rect.left + rect.width / 2;
+      const y = event.clientY || rect.top + rect.height / 2;
+      heart.className = "tap-heart";
+      heart.textContent = "♥";
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      document.body.appendChild(heart);
+      heart.addEventListener("animationend", () => heart.remove(), { once: true });
     }
 
     prevButton.addEventListener("click", () => {
@@ -717,6 +1756,12 @@
     nextButton.addEventListener("click", () => {
       nextSlide();
       restartAutoplay();
+    });
+
+    autoplayButton.addEventListener("click", () => {
+      isAutoplaying = !isAutoplaying;
+      updateAutoplayButton();
+      startAutoplay();
     });
 
     viewport.addEventListener("touchstart", (event) => {
@@ -759,7 +1804,60 @@
       document.getElementById("topo").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     });
 
+    letterToggle.addEventListener("click", () => {
+      const isOpen = letterPanel.classList.toggle("is-open");
+      letterToggle.setAttribute("aria-expanded", String(isOpen));
+      letterToggle.textContent = isOpen ? "Guardar carta" : "Abrir carta";
+    });
+
+    startStoryButton.addEventListener("click", () => {
+      showStoryStep(0);
+    });
+
+    storyNextButton.addEventListener("click", () => {
+      if (currentStoryStep >= storySteps.length - 1) {
+        endStoryMode();
+        return;
+      }
+
+      showStoryStep(currentStoryStep + 1);
+    });
+
+    storyCloseButton.addEventListener("click", endStoryMode);
+
+    surpriseButton.addEventListener("click", showSurprise);
+
+    document.querySelectorAll(".memory-toggle").forEach((button) => {
+      button.addEventListener("click", () => {
+        const letter = button.nextElementSibling;
+        const isOpen = letter.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+        button.textContent = isOpen ? "Guardar lembrança" : "Ler lembrança";
+      });
+    });
+
+    document.querySelectorAll("button, .quick-nav a, .story-link").forEach((element) => {
+      element.addEventListener("click", spawnTapHeart);
+    });
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+    }
+
     goToSlide(0);
+    updateDaysCounter();
+    updateAutoplayButton();
     startAutoplay();
   </script>
 </body>
