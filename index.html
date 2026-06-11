@@ -525,10 +525,6 @@
       outline-offset: 3px;
     }
 
-    #toggle-autoplay {
-      background: linear-gradient(135deg, var(--sage), #408777 62%, var(--gold));
-    }
-
     .back-top {
       display: grid;
       width: 44px;
@@ -1197,7 +1193,6 @@
             <div class="counter" id="carousel-counter" aria-live="polite">1 de 15</div>
             <div class="carousel-controls">
               <button class="control" type="button" id="prev-slide" aria-label="Foto anterior">‹</button>
-              <button class="control" type="button" id="toggle-autoplay" aria-label="Pausar carrossel">Ⅱ</button>
               <button class="control" type="button" id="next-slide" aria-label="Próxima foto">›</button>
             </div>
           </div>
@@ -1561,14 +1556,12 @@
 
   <script>
     const track = document.getElementById("carousel-track");
-    const viewport = document.getElementById("carousel-viewport");
     const slides = Array.from(document.querySelectorAll(".slide"));
     const counter = document.getElementById("carousel-counter");
     const progress = document.getElementById("carousel-progress");
     const dotsContainer = document.getElementById("carousel-dots");
     const prevButton = document.getElementById("prev-slide");
     const nextButton = document.getElementById("next-slide");
-    const autoplayButton = document.getElementById("toggle-autoplay");
     const backTopButton = document.getElementById("back-top");
     const letterToggle = document.getElementById("letter-toggle");
     const letterPanel = document.getElementById("letter-panel");
@@ -1581,7 +1574,6 @@
     const surpriseButton = document.getElementById("surprise-button");
     const surpriseMessage = document.getElementById("surprise-message");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const autoplayDelay = 5600;
     const storySteps = [
       { id: "mensagem-inicial", label: "Capítulo 1 de 5: a mensagem" },
       { id: "linha-do-tempo", label: "Capítulo 2 de 5: nossa linha do tempo" },
@@ -1599,22 +1591,15 @@
     ];
 
     let currentIndex = 0;
-    let autoplayId;
-    let isAutoplaying = !reduceMotion;
     let currentStoryStep = 0;
     let lastSurpriseIndex = -1;
-    let touchStartX = 0;
-    let touchStartY = 0;
 
     const dots = slides.map((_, index) => {
       const button = document.createElement("button");
       button.className = "dot-button";
       button.type = "button";
       button.setAttribute("aria-label", `Ir para foto ${index + 1}`);
-      button.addEventListener("click", () => {
-        goToSlide(index);
-        restartAutoplay();
-      });
+      button.addEventListener("click", () => goToSlide(index));
       dotsContainer.appendChild(button);
       return button;
     });
@@ -1641,25 +1626,6 @@
 
     function previousSlide() {
       goToSlide(currentIndex - 1);
-    }
-
-    function startAutoplay() {
-      window.clearInterval(autoplayId);
-
-      if (!isAutoplaying || reduceMotion) {
-        return;
-      }
-
-      autoplayId = window.setInterval(nextSlide, autoplayDelay);
-    }
-
-    function restartAutoplay() {
-      startAutoplay();
-    }
-
-    function updateAutoplayButton() {
-      autoplayButton.textContent = isAutoplaying ? "Ⅱ" : "▶";
-      autoplayButton.setAttribute("aria-label", isAutoplaying ? "Pausar carrossel" : "Reproduzir carrossel");
     }
 
     function updateDaysCounter() {
@@ -1733,54 +1699,10 @@
 
     prevButton.addEventListener("click", () => {
       previousSlide();
-      restartAutoplay();
     });
 
     nextButton.addEventListener("click", () => {
       nextSlide();
-      restartAutoplay();
-    });
-
-    autoplayButton.addEventListener("click", () => {
-      isAutoplaying = !isAutoplaying;
-      updateAutoplayButton();
-      startAutoplay();
-    });
-
-    viewport.addEventListener("touchstart", (event) => {
-      touchStartX = event.changedTouches[0].clientX;
-      touchStartY = event.changedTouches[0].clientY;
-    }, { passive: true });
-
-    viewport.addEventListener("touchend", (event) => {
-      const touchEndX = event.changedTouches[0].clientX;
-      const touchEndY = event.changedTouches[0].clientY;
-      const deltaX = touchEndX - touchStartX;
-      const deltaY = touchEndY - touchStartY;
-
-      if (Math.abs(deltaX) < 42 || Math.abs(deltaX) < Math.abs(deltaY)) {
-        return;
-      }
-
-      if (deltaX < 0) {
-        nextSlide();
-      } else {
-        previousSlide();
-      }
-
-      restartAutoplay();
-    }, { passive: true });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowRight") {
-        nextSlide();
-        restartAutoplay();
-      }
-
-      if (event.key === "ArrowLeft") {
-        previousSlide();
-        restartAutoplay();
-      }
     });
 
     backTopButton.addEventListener("click", () => {
@@ -1840,8 +1762,6 @@
 
     goToSlide(0);
     updateDaysCounter();
-    updateAutoplayButton();
-    startAutoplay();
   </script>
 </body>
 </html>
