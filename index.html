@@ -77,11 +77,240 @@
       font: inherit;
     }
 
+    .js body.letter-gate-active {
+      overflow: hidden;
+    }
+
     h1,
     h2,
     h3,
     p {
       margin-top: 0;
+    }
+
+    .letter-entry {
+      display: none;
+    }
+
+    .js .letter-entry {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      place-items: center;
+      overflow-y: auto;
+      padding: 24px 18px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(248, 197, 210, 0.48), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(212, 154, 67, 0.26), transparent 28%),
+        radial-gradient(circle at 76% 88%, rgba(47, 109, 96, 0.18), transparent 30%),
+        linear-gradient(135deg, #fffaf5 0%, #fff0f5 46%, #f7fbf5 100%);
+      isolation: isolate;
+    }
+
+    .js .letter-entry::before,
+    .js .letter-entry::after {
+      content: "♥";
+      position: fixed;
+      z-index: -1;
+      color: rgba(116, 35, 65, 0.10);
+      font-size: 5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .js .letter-entry::before {
+      top: 18px;
+      left: 18px;
+      transform: rotate(-14deg);
+    }
+
+    .js .letter-entry::after {
+      right: 20px;
+      bottom: 16px;
+      color: rgba(47, 109, 96, 0.10);
+      transform: rotate(12deg);
+    }
+
+    .letter-entry.is-hidden {
+      display: none;
+    }
+
+    .letter-entry.is-opening {
+      pointer-events: none;
+      animation: entry-fade-out 420ms ease forwards 720ms;
+    }
+
+    .entry-letter-stage {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+      width: min(560px, 100%);
+      text-align: center;
+    }
+
+    .entry-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0;
+      padding: 7px 12px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
+      border-radius: 999px;
+      color: var(--rose-deep);
+      background: rgba(255, 253, 250, 0.72);
+      font-size: 0.86rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(57, 24, 39, 0.08);
+    }
+
+    .entry-envelope {
+      position: relative;
+      width: min(420px, 88vw);
+      aspect-ratio: 4 / 3;
+      filter: drop-shadow(0 22px 34px rgba(57, 24, 39, 0.18));
+      perspective: 900px;
+    }
+
+    .entry-letter-paper {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 10%;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      min-height: 58%;
+      padding: 22px 18px;
+      border: 1px solid rgba(116, 35, 65, 0.14);
+      border-radius: 16px;
+      color: var(--rose-deep);
+      background:
+        linear-gradient(rgba(116, 35, 65, 0.045) 1px, transparent 1px),
+        linear-gradient(160deg, rgba(255, 253, 250, 0.98), rgba(255, 241, 216, 0.90));
+      background-size: 100% 27px, auto;
+      box-shadow: 0 12px 26px rgba(57, 24, 39, 0.12);
+      transform: translateY(34%);
+      transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .entry-letter-paper span {
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .entry-letter-paper strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      line-height: 1.05;
+    }
+
+    .entry-envelope-back,
+    .entry-envelope-front,
+    .entry-envelope-flap {
+      position: absolute;
+      inset: 20% 0 0;
+      border-radius: 18px;
+    }
+
+    .entry-envelope-back {
+      z-index: 0;
+      border: 1px solid rgba(116, 35, 65, 0.18);
+      background:
+        linear-gradient(145deg, rgba(255, 253, 250, 0.94), rgba(255, 221, 231, 0.92)),
+        var(--paper-solid);
+    }
+
+    .entry-envelope-front {
+      z-index: 3;
+      overflow: hidden;
+      background:
+        linear-gradient(34deg, rgba(255, 241, 216, 0.98) 0 49%, transparent 50%),
+        linear-gradient(326deg, rgba(255, 230, 238, 0.98) 0 49%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 253, 250, 0.96), rgba(248, 197, 210, 0.88));
+      border: 1px solid rgba(116, 35, 65, 0.16);
+    }
+
+    .entry-envelope-flap {
+      z-index: 4;
+      inset: 20% 0 auto;
+      height: 48%;
+      border-radius: 18px 18px 8px 8px;
+      background: linear-gradient(160deg, rgba(255, 253, 250, 0.98), rgba(248, 197, 210, 0.92));
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top center;
+      transition: transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      border-top: 1px solid rgba(116, 35, 65, 0.16);
+    }
+
+    .entry-seal {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      z-index: 5;
+      display: grid;
+      width: 56px;
+      height: 56px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--button-gradient);
+      box-shadow:
+        0 12px 22px rgba(116, 35, 65, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+      font-size: 1.45rem;
+      transform: translate(-50%, -50%);
+      transition: opacity 220ms ease, transform 320ms ease;
+    }
+
+    .letter-entry.is-opening .entry-envelope-flap {
+      transform: rotateX(178deg);
+    }
+
+    .letter-entry.is-opening .entry-letter-paper {
+      transform: translateY(-34%);
+    }
+
+    .letter-entry.is-opening .entry-seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.72);
+    }
+
+    .entry-copy {
+      display: grid;
+      gap: 10px;
+      max-width: 520px;
+      padding: 0 6px;
+    }
+
+    .entry-copy h2 {
+      margin-bottom: 0;
+      color: var(--rose-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.55rem;
+      line-height: 0.96;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .entry-copy p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .entry-open-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
     }
 
     .wrap {
@@ -459,6 +688,7 @@
     .control,
     .back-top,
     .letter-button,
+    .entry-open-button,
     .story-button,
     .surprise-button,
     .memory-toggle {
@@ -490,6 +720,7 @@
     .control:hover,
     .back-top:hover,
     .letter-button:hover,
+    .entry-open-button:hover,
     .story-button:hover,
     .surprise-button:hover,
     .memory-toggle:hover {
@@ -504,6 +735,7 @@
     .control:active,
     .back-top:active,
     .letter-button:active,
+    .entry-open-button:active,
     .story-button:active,
     .surprise-button:active,
     .memory-toggle:active,
@@ -515,6 +747,7 @@
     .dot-button:focus-visible,
     .back-top:focus-visible,
     .letter-button:focus-visible,
+    .entry-open-button:focus-visible,
     .story-button:focus-visible,
     .surprise-button:focus-visible,
     .memory-toggle:focus-visible,
@@ -934,6 +1167,13 @@
       }
     }
 
+    @keyframes entry-fade-out {
+      to {
+        opacity: 0;
+        transform: scale(1.012);
+      }
+    }
+
     @keyframes tap-heart {
       from {
         opacity: 0;
@@ -1001,6 +1241,18 @@
         grid-column: 1 / -1;
         white-space: normal;
       }
+
+      .entry-copy h2 {
+        font-size: 2.2rem;
+      }
+
+      .entry-letter-paper {
+        padding: 18px 14px;
+      }
+
+      .entry-letter-paper strong {
+        font-size: 1.22rem;
+      }
     }
 
     @media (min-width: 720px) {
@@ -1011,6 +1263,10 @@
 
       .section {
         padding-top: 50px;
+      }
+
+      .entry-copy h2 {
+        font-size: 3.05rem;
       }
 
       .section-header {
@@ -1071,7 +1327,30 @@
     }
   </style>
 </head>
-<body>
+<body class="letter-gate-active">
+  <section class="letter-entry" id="letter-entry" role="dialog" aria-modal="true" aria-labelledby="entry-title" aria-describedby="entry-copy">
+    <div class="entry-letter-stage">
+      <p class="entry-kicker">♥ Para Raquel</p>
+      <div class="entry-envelope" aria-hidden="true">
+        <div class="entry-letter-paper">
+          <span>Desde 06/04</span>
+          <strong>uma história feita de carinho</strong>
+        </div>
+        <div class="entry-envelope-back"></div>
+        <div class="entry-envelope-flap"></div>
+        <div class="entry-envelope-front"></div>
+        <span class="entry-seal">♥</span>
+      </div>
+      <div class="entry-copy">
+        <h2 id="entry-title">Uma carta para você</h2>
+        <p id="entry-copy">
+          Antes de entrar nas nossas fotos e memórias, abre essa carta com calma. Esse presente foi feito para guardar um pedaço bonito da nossa história.
+        </p>
+      </div>
+      <button class="entry-open-button" type="button" id="open-entry-letter">Abrir carta</button>
+    </div>
+  </section>
+
   <main class="wrap" id="topo">
     <header class="site-intro" aria-labelledby="titulo-principal">
       <p class="page-eyebrow">♥ Para Raquel</p>
@@ -1555,6 +1834,10 @@
   </main>
 
   <script>
+    const pageRoot = document.getElementById("topo");
+    const letterEntry = document.getElementById("letter-entry");
+    const openEntryButton = document.getElementById("open-entry-letter");
+    const mainTitle = document.getElementById("titulo-principal");
     const track = document.getElementById("carousel-track");
     const slides = Array.from(document.querySelectorAll(".slide"));
     const counter = document.getElementById("carousel-counter");
@@ -1626,6 +1909,51 @@
 
     function previousSlide() {
       goToSlide(currentIndex - 1);
+    }
+
+    function setPageInteraction(isEnabled) {
+      if (!pageRoot) {
+        return;
+      }
+
+      if (isEnabled) {
+        pageRoot.removeAttribute("aria-hidden");
+      } else {
+        pageRoot.setAttribute("aria-hidden", "true");
+      }
+
+      if ("inert" in pageRoot) {
+        pageRoot.inert = !isEnabled;
+      }
+    }
+
+    function enterPage() {
+      setPageInteraction(true);
+      document.body.classList.remove("letter-gate-active");
+
+      if (!letterEntry) {
+        return;
+      }
+
+      letterEntry.classList.add("is-hidden");
+      letterEntry.hidden = true;
+
+      if (mainTitle) {
+        mainTitle.setAttribute("tabindex", "-1");
+        mainTitle.focus({ preventScroll: true });
+      }
+
+      document.getElementById("topo").scrollIntoView({ behavior: "auto", block: "start" });
+    }
+
+    function openEntryLetter() {
+      if (!letterEntry) {
+        enterPage();
+        return;
+      }
+
+      letterEntry.classList.add("is-opening");
+      window.setTimeout(enterPage, reduceMotion ? 80 : 1180);
     }
 
     function updateDaysCounter() {
@@ -1704,6 +2032,16 @@
     nextButton.addEventListener("click", () => {
       nextSlide();
     });
+
+    if (letterEntry && openEntryButton) {
+      setPageInteraction(false);
+      window.requestAnimationFrame(() => {
+        openEntryButton.focus({ preventScroll: true });
+      });
+      openEntryButton.addEventListener("click", openEntryLetter);
+    } else {
+      enterPage();
+    }
 
     backTopButton.addEventListener("click", () => {
       document.getElementById("topo").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
